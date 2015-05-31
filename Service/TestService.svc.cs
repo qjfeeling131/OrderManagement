@@ -10,6 +10,7 @@ using System.ServiceModel.Activation;
 using System.Threading.Tasks;
 using Aspect;
 using System.Transactions;
+using OrderManager.Manager;
 
 namespace OrderManager.Service
 {
@@ -18,10 +19,11 @@ namespace OrderManager.Service
     //winform , console , window service 寄宿
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     [Aop.Init]
+    [Aop.CatchWcfException]
     public class TestService : ITestService
     {
-        //[Dependency]
-        //public IDatabaseRepository DatabaseRepository { get; set; }
+        [Dependency]
+        public IUserManager UserManger { get; set; }
 
 
         //[Aop.BeforeMethod]
@@ -29,7 +31,7 @@ namespace OrderManager.Service
         [Aop.VerifyAuthority]
         public void GetData()
         {
-  
+            //UserManger.Add();
         }
 
         [Aop.CatchWcfException]

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OrderManager.Model.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
@@ -7,22 +8,15 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace OrderManager.Repository
 {
     public class DatabaseRepository : IDatabaseRepository
     {
-        // QUESTION ???
-        //1. DbContext不适合创建成单例模式，例如A对象正在编辑，B对象编辑完了提交，导致正在编辑的A对象也被提交了，但是A的改可能要取消的，但是最终都被提交到数据库中了。
-        //2. 如果DbContext创建过多的实例，就要控制好并发的问题，因为不同实例的DbContext可能会对同一条记录进行修改。
-        //3. DbContext线程安全问题，同一实例的DbContext被不同线程调用会引发第一条场景的情况。不同线程使用不同实例的DbContext时又会引发第二种场景的情况。
-
-        //这类 应该是提供增删查改方法。 如何选择需要那个数据库？ 优先  分库 ：垂直切分 水平切分？
-
         private DbContext _dbContext;
 
         public DatabaseRepository()
         {
-            _dbContext = new AopDbEntity();   //can extension -> reflection
+            _dbContext =new OrderManagementContext();//can extension -> reflection
         }
 
         public int Add<T>(T model)

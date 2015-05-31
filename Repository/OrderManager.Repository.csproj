@@ -46,48 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AopDbEntity.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AopDbEntity.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AopDbEntity.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AopDbEntity.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AopDbEntity.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AopDbEntity.edmx</DependentUpon>
-    </Compile>
     <Compile Include="DatabaseRepository.cs" />
     <Compile Include="IDatabaseRepository.cs" />
     <Compile Include="DatabasePolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProirityEnum.cs" />
-    <Compile Include="User.cs">
-      <DependentUpon>AopDbEntity.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="AopDbEntity.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AopDbEntity.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="AopDbEntity.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AopDbEntity.edmx</DependentUpon>
-      <LastGenOutput>AopDbEntity.Context.cs</LastGenOutput>
-    </None>
-    <None Include="AopDbEntity.edmx.diagram">
-      <DependentUpon>AopDbEntity.edmx</DependentUpon>
-    </None>
-    <None Include="AopDbEntity.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AopDbEntity.edmx</DependentUpon>
-      <LastGenOutput>AopDbEntity.cs</LastGenOutput>
-    </None>
     <None Include="App.Config" />
     <None Include="packages.config" />
   </ItemGroup>

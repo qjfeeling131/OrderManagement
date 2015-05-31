@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository
+namespace OrderManager.Repository
 {
     public interface IDatabaseRepository
     {

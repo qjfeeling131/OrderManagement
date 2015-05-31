@@ -1,6 +1,7 @@
 ﻿using Aspect;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
+using OrderManager.Manager;
 
 namespace OrderManager.Service
 {
@@ -9,6 +10,8 @@ namespace OrderManager.Service
         public void Register(IUnityContainer container)
         {
             _container = container;
+            RegistNSetInterceptor<IOrderManger, OrderManger>(); 
+            RegistNSetInterceptor<IUserManager, UserManager>(); 
             RegistNSetInterceptor<ITestService, TestService>(); // 不注册拦截不到
         }
 
