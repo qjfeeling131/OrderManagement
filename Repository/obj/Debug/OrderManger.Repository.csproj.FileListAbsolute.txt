@@ -1,0 +1,7 @@
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\bin\Debug\Repository.dll.config
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\bin\Debug\Repository.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\bin\Debug\Repository.pdb
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\bin\Debug\EntityFramework.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\obj\Debug\OrderManger.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\obj\Debug\Repository.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Repository\obj\Debug\Repository.pdb

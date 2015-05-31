@@ -1,0 +1,9 @@
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\Model.dll.config
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\Model.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\Model.pdb
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\EntityFramework.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\Repository.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\bin\Debug\Repository.pdb
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\obj\Debug\OrderManger.Model.csprojResolveAssemblyReference.cache
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\obj\Debug\Model.dll
+C:\Users\Randy\Documents\GitHub\OrderManagement\Model\obj\Debug\Model.pdb

@@ -1,0 +1,12 @@
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\Model.dll.config
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\Model.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\Model.pdb
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\CommonHelper.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\EntityFramework.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\Repository.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\log4net.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\CommonHelper.pdb
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\bin\Debug\Repository.pdb
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\obj\Debug\Model.dll
+C:\Users\Randy\Documents\GitHub\MyFramework\WcfService\Model\obj\Debug\Model.pdb
