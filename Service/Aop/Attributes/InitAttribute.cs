@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 
-namespace Service.Aop
+namespace OrderManager.Service.Aop
 {
     public class InitAttribute :InitializationAttribute
     {

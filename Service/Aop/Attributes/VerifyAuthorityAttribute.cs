@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Aop
+namespace OrderManager.Service.Aop
 {
     public class VerifyAuthorityAttribute : AuthenticationAttribute
     {

@@ -1,9 +1,8 @@
 ﻿using Aspect;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.InterceptionExtension;
-using Repository;
 
-namespace Service
+namespace OrderManager.Service
 {
     public class UnityContainerRegister : IUnityContanierRegister
     {
@@ -11,7 +10,6 @@ namespace Service
         {
             _container = container;
             RegistNSetInterceptor<ITestService, TestService>(); // 不注册拦截不到
-            RegistNSetInterceptor<IDatabaseRepository, DatabaseRepository>();
         }
 
         #region private 

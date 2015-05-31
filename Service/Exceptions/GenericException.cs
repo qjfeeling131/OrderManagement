@@ -8,7 +8,7 @@ using System.ServiceModel.Web;
 using System.Text;
 using System.Xml.Linq;
 
-namespace Service
+namespace OrderManager.Service
 {
     public class GenericException : Exception
     {

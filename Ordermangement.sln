@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManger.Model", "Model\OrderManger.Model.csproj", "{01171FC6-341B-4F62-A172-DDCF95585681}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Model", "Model\OrderManager.Model.csproj", "{01171FC6-341B-4F62-A172-DDCF95585681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManger.Service", "Service\OrderManger.Service.csproj", "{82686C5A-6260-4081-B8DC-FD64777BE327}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Service", "Service\OrderManager.Service.csproj", "{82686C5A-6260-4081-B8DC-FD64777BE327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManger.Repository", "Repository\OrderManger.Repository.csproj", "{8C1BD3B1-6C97-4643-9F97-B891227CC86F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Repository", "Repository\OrderManager.Repository.csproj", "{8C1BD3B1-6C97-4643-9F97-B891227CC86F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManger.Web", "Web\OrderManger.Web.csproj", "{F8592216-7BA2-4240-B701-71AD05FABC4B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Web", "Web\OrderManager.Web.csproj", "{F8592216-7BA2-4240-B701-71AD05FABC4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Manager", "OrderManager.Manager\OrderManager.Manager.csproj", "{B620C208-6B14-4DC0-957B-18840B39EA1C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F8592216-7BA2-4240-B701-71AD05FABC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8592216-7BA2-4240-B701-71AD05FABC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8592216-7BA2-4240-B701-71AD05FABC4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B620C208-6B14-4DC0-957B-18840B39EA1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B620C208-6B14-4DC0-957B-18840B39EA1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B620C208-6B14-4DC0-957B-18840B39EA1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B620C208-6B14-4DC0-957B-18840B39EA1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
