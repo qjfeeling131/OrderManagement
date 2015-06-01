@@ -21,6 +21,11 @@ namespace OrderManager.Web
             return View();
         }
 
+        public ViewResult Exception()
+        {
+            return View("~/Views/Template/Exception.cshtml");
+        }
+
 
         [HttpPost]
         public JsonResult Login(string UserCode, string Password, bool? IsRememeber)  //json 格式不能传null
