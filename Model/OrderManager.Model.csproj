@@ -52,7 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\Class1.cs" />
+    <Compile Include="DTO\OM_DepartmentDto.cs" />
     <Compile Include="Models\Mapping\OM_DepartmentMap.cs" />
     <Compile Include="Models\Mapping\OM_LogMap.cs" />
     <Compile Include="Models\Mapping\OM_PermissionMap.cs" />

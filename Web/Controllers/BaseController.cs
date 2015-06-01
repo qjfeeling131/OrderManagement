@@ -5,15 +5,20 @@ using System.Text;
 using System.Web.Mvc;
 using System.Web;
 using System.ServiceModel;
-using Web.Models;
+using OrderManager.Web.Models;
 
-namespace FrontendCore
+
+namespace OrderManager.Web
 {
     public class BaseController : Controller
     {
 
         //public ICache Cache { get; set; }
 
+        public ViewResult Exception()
+        {
+            return View("~/Views/Template/Exception.cshtml");
+        }
 
         protected string GetCookie(string key)
         {
@@ -48,6 +53,7 @@ namespace FrontendCore
 
         protected override void OnAuthorization(AuthorizationContext filterContext)
         {
+            //filterContext.
             base.OnAuthorization(filterContext);
         }
 
@@ -77,7 +83,7 @@ namespace FrontendCore
                 model.Message = GetExceptionDetail(filterContext.Exception);
             }
 
-            filterContext.Result = View("~/Views/Exception/base.cshtml", model);
+            filterContext.Result = View("~/Views/Template/Exception.cshtml", model);
 
         }
 

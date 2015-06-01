@@ -15,7 +15,7 @@
     <AssemblyName>Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -108,16 +109,46 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\LogController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ErrorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Css\AdminLTE.min.css" />
+    <Content Include="Css\bootstrap\css\bootstrap.css" />
+    <Content Include="Css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Css\skin-blue.min.css" />
     <Content Include="Global.asax" />
+    <Content Include="img\boxed-bg.jpg" />
+    <Content Include="img\boxed-bg.png" />
+    <Content Include="img\home_bg.jpg" />
+    <Content Include="img\icons.png" />
+    <Content Include="img\mail.png" />
+    <Content Include="img\me-dev.svg" />
+    <Content Include="img\me.svg" />
+    <Content Include="img\photo2.png" />
+    <Content Include="Js\bootstrap\bootstrap.min.js" />
+    <Content Include="Js\bootstrap\npm.js" />
+    <Content Include="Js\plugins\iCheck\all.css" />
+    <Content Include="Js\plugins\iCheck\icheck.js" />
+    <Content Include="Js\plugins\iCheck\icheck.min.js" />
+    <Content Include="Js\plugins\iCheck\square\blue%402x.png" />
+    <Content Include="Js\plugins\iCheck\square\blue.css" />
+    <Content Include="Js\plugins\iCheck\square\blue.png" />
+    <Content Include="Js\utility\jqBootstrapValidation.js" />
+    <Content Include="Js\utility\jquery.min.js" />
+    <Content Include="Js\utility\master.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -129,11 +160,29 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
+    <Folder Include="Views\Log\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template\base.cshtml" />
+    <Content Include="Views\Template\dialog.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Login\index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Css\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Css\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Template\Exception.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -153,7 +202,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58662</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:58662/</IISUrl>
+          <IISUrl>http://localhost/OrderManager.Web</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
