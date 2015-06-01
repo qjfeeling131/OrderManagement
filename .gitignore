@@ -5,7 +5,16 @@
 *.pydevproject
 .project
 .metadata
-bin/
+Model/bin/
+Web/bin/
+Repository/bin/
+Service/bin/
+OrderManager.Manager/bin/
+Model/obj/
+Web/obj/
+Repository/obj/
+Service/obj/
+OrderManager.Manager/obj/
 tmp/
 *.tmp
 *.bak
