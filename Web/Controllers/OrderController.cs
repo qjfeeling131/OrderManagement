@@ -16,6 +16,10 @@ namespace OrderManager.Web
 {
     public class OrderController : BaseController
     {
+        public ViewResult Index()
+        {
+            return View();
+        }
    
     }
 }

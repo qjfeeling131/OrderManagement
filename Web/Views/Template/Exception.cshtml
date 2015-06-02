@@ -3,20 +3,18 @@
     Layout = "~/Views/Template/dialog.cshtml";
 }
 
+@model OrderManager.Web.Models.ErrorModel
+
 @section title {
-    <h3 style="font-weight:bold">Exception</h3>
+    <h3 style="font-weight:bold">@Model.Title</h3>
 }
 
-@section body{
-
-Error Message
-
+@section Message{
+    @Model.Target
+    @Model.Message
 }
 
 @section buttons{
-    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="">&nbsp; OK &nbsp; </button>
-    <script>
-
-    </script>
-
+    <button id="confirm" type="button" class="btn btn-primary" data-dismiss="modal" onclick="">&nbsp; OK &nbsp; </button>
+ 
 }

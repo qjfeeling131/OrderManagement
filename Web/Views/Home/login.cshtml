@@ -1,0 +1,82 @@
+﻿@{
+    Layout = "~/views/template/base.cshtml";
+}
+
+
+@section title{
+    Oreder Managerment | Log in
+}
+
+@section head{
+    <style>
+        .bg {
+            background: url('@Url.Content("~/img/photo2.png")') no-repeat top center scroll;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+        }
+    </style>
+}
+
+
+@section body{
+    <section>
+        <div class="login-box ">
+            <div class="login-logo">
+                <a href="#"><b>Order</b>Managerment</a>
+            </div><!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <form action="home/login" method="post">
+                    <div class="form-group has-feedback">
+                        <input type="text" name="UserCode" class="form-control" required placeholder="User Code" />
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <input type="password" name="Password" class="form-control" required placeholder="Password" />
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    <input name="IsRememeber" id="IsRememeber" type="checkbox"> Remember Me
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <button type="submit" id="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            @*<button type="button" id="exception" class="btn btn-success btn-block btn-flat">exception</button>*@
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+}
+
+@section script{
+    <script>
+        $(function () {
+            $('#IsRememeber').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' // optional,
+            });
+
+            $('body').addClass('bg');
+
+            $('#IsRememeber').on('ifChecked', function (event) {
+                $('#IsRememeber').val(true);
+            });
+
+            $('#exception').click(function () {
+                createDialog("base/exception");
+            });
+        });
+    </script>
+}
+

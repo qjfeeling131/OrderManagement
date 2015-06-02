@@ -14,7 +14,13 @@ namespace OrderManager.Web
     {
 
         //public ICache Cache { get; set; }
-
+        public ViewResult Exception(Models.ErrorModel model)
+        {
+            if (model == null)
+                model = new ErrorModel();
+            return View("~/Views/Template/Exception.cshtml", model);
+        }
+       
 
         protected string GetCookie(string key)
         {
@@ -78,8 +84,8 @@ namespace OrderManager.Web
             {
                 model.Message = GetExceptionDetail(filterContext.Exception);
             }
-
-            filterContext.Result = View("~/Views/Template/Exception.cshtml", model);
+            //createDialog("Login/Exception");
+            filterContext.Result = JavaScript("createDialog('Base/Exception')");
 
         }
 

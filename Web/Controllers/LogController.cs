@@ -16,7 +16,10 @@ namespace OrderManager.Web
 {
     public class LogController : BaseController
     {
-
+        public ViewResult Index()
+        {
+            return View();
+        }
    
     }
 }
