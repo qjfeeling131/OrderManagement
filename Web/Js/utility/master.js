@@ -1,9 +1,10 @@
 ﻿
 function createDialog(url, parameters) {
     $.get(url, parameters, function (data) {
+        console.log(data);
         for (i = 0; i < $(data).length; i++) {
             var item = $(data)[i];
-            if ($(item).hasClass("modal")) {
+            if ($(item).hasClass("modal")) {      
                 modal = $(item);
                 $(modal).appendTo('#dialog_content');
                 $(modal).modal({

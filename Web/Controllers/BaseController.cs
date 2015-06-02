@@ -15,10 +15,6 @@ namespace OrderManager.Web
 
         //public ICache Cache { get; set; }
 
-        public ViewResult Exception()
-        {
-            return View("~/Views/Template/Exception.cshtml");
-        }
 
         protected string GetCookie(string key)
         {
