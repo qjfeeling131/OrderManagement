@@ -1,7 +1,6 @@
 ﻿
 function createDialog(url, parameters) {
     $.get(url, parameters, function (data) {
-        console.log(data);
         for (i = 0; i < $(data).length; i++) {
             var item = $(data)[i];
             if ($(item).hasClass("modal")) {      
