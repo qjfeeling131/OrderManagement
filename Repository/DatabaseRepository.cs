@@ -27,12 +27,7 @@ namespace OrderManager.Repository
             return result;
         }
 
-<<<<<<< HEAD
-        public virtual int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active")
-=======
-        public int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "IsDel")
->>>>>>> origin/master
-                   where T : class
+        public virtual int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "IsDel") where T : class
         {
             var model = GetModel(whereLambda);
             DbEntityEntry entry = _dbContext.Entry<T>(model);

@@ -104,7 +104,7 @@ namespace OrderManager.Manager
         }
         #endregion
 
-        #region Get ont or manay object
+        #region  Get one or manay Object
 
         public IList<OM_Product> GetProductList(int PageIndex, int PageSize, Expression<Func<OM_Product, bool>> fuc, Expression<Func<OM_Product, bool>> orderFuc)
         {

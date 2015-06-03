@@ -201,7 +201,7 @@ namespace OrderManager.Manager
         }
         #endregion
 
-        #region Delete Method
+        #region Get one or manay Object 
         public IList<OM_User> GetUserList(int PageIndex, int PageSize, Expression<Func<OM_User, bool>> fuc, Expression<Func<OM_User, bool>> orderFuc)
         {
             return dbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
