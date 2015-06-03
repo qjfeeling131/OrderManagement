@@ -27,13 +27,18 @@ namespace OrderManager.Repository
             return result;
         }
 
+<<<<<<< HEAD
         public virtual int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active")
+=======
+        public int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "IsDel")
+>>>>>>> origin/master
                    where T : class
         {
             var model = GetModel(whereLambda);
             DbEntityEntry entry = _dbContext.Entry<T>(model);
             entry.State = System.Data.Entity.EntityState.Unchanged;
             entry.Property(activeProperty).IsModified = true;
+            entry.Property(activeProperty).CurrentValue = true;
             return _dbContext.SaveChanges();
         }
 
