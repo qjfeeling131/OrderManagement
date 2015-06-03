@@ -10,24 +10,24 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Repository
 {
-    public class DatabaseRepository : IDatabaseRepository
+    public abstract class DatabaseRepository : IDatabaseRepository
     {
         private DbContext _dbContext;
 
         public DatabaseRepository()
         {
-            _dbContext =new OrderManagementContext();//can extension -> reflection
+            _dbContext = new OrderManagementContext();//can extension -> reflection
         }
 
-        public int Add<T>(T model)
+        public virtual int Add<T>(T model)
             where T : class
         {
             _dbContext.Set<T>().Add(model);
-            var result = _dbContext.SaveChanges(); 
+            var result = _dbContext.SaveChanges();
             return result;
         }
 
-        public int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active")
+        public virtual int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active")
                    where T : class
         {
             var model = GetModel(whereLambda);
@@ -37,7 +37,7 @@ namespace OrderManager.Repository
             return _dbContext.SaveChanges();
         }
 
-        public int RealDelete<T>(Expression<Func<T, bool>> whereLambda = null)
+        public virtual int RealDelete<T>(Expression<Func<T, bool>> whereLambda = null)
            where T : class
         {
             var model = GetModel(whereLambda);
@@ -46,7 +46,7 @@ namespace OrderManager.Repository
             return _dbContext.SaveChanges();
         }
 
-        public int Update<T>(T model)
+        public virtual int Update<T>(T model)
            where T : class
         {
             DbEntityEntry entry = _dbContext.Entry<T>(model);
@@ -55,20 +55,20 @@ namespace OrderManager.Repository
         }
 
 
-        public List<T> GetPagedList<T, TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda = null, Expression<Func<T, TKey>> orderBy = null)
+        public virtual List<T> GetPagedList<T, TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda = null, Expression<Func<T, TKey>> orderBy = null)
                  where T : class
         {
             return _dbContext.Set<T>().Where(whereLambda).OrderBy(orderBy).Skip((pageIndex - 1) * pageSize).Take(pageSize).ToList();
         }
 
 
-        public int ExcuteSql(string strSql, params object[] paras)
+        public virtual int ExcuteSql(string strSql, params object[] paras)
         {
             return _dbContext.Database.ExecuteSqlCommand(strSql, paras);
         }
 
 
-        public T GetModel<T>(Expression<Func<T, bool>> lambda) where T : class
+        public virtual T GetModel<T>(Expression<Func<T, bool>> lambda) where T : class
         {
             return _dbContext.Set<T>().Where(lambda).FirstOrDefault();
         }

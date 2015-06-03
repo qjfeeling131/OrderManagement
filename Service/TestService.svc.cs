@@ -31,14 +31,14 @@ namespace OrderManager.Service
         [Aop.VerifyAuthority]
         public void GetData()
         {
-            //UserManger.Add();
         }
+
 
         [Aop.CatchWcfException]
         public void ThrowFault()
         {
             int j = 1;
-            int i = 1 / (j-1);
+            int i = 1 / (j - 1);
         }
     }
 

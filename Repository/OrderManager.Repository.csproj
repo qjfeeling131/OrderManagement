@@ -48,9 +48,7 @@
   <ItemGroup>
     <Compile Include="DatabaseRepository.cs" />
     <Compile Include="IDatabaseRepository.cs" />
-    <Compile Include="DatabasePolicy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProirityEnum.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
@@ -58,6 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\OrderManager.Model.csproj">
+      <Project>{01171fc6-341b-4f62-a172-ddcf95585681}</Project>
+      <Name>OrderManager.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
