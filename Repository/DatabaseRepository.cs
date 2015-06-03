@@ -16,7 +16,7 @@ namespace OrderManager.Repository
 
         public DatabaseRepository()
         {
-            _dbContext =new OrderManagementContext();//can extension -> reflection
+            _dbContext = new OrderManagementContext();//can extension -> reflection
         }
 
         public int Add<T>(T model)
@@ -27,13 +27,14 @@ namespace OrderManager.Repository
             return result;
         }
 
-        public int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active")
+        public int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "IsDel")
                    where T : class
         {
             var model = GetModel(whereLambda);
             DbEntityEntry entry = _dbContext.Entry<T>(model);
             entry.State = System.Data.Entity.EntityState.Unchanged;
             entry.Property(activeProperty).IsModified = true;
+            entry.Property(activeProperty).CurrentValue = true;
             return _dbContext.SaveChanges();
         }
 
