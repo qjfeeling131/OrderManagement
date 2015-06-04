@@ -8,41 +8,10 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Manager
 {
-    public interface IBaseManager 
+
+    public abstract class BaseManger
     {
-        void Add<T>(T obj) ;
-        void Update( );
-        void Delete();
-        void GetData();
-    }
-
-    public abstract class BaseManger:IBaseManager
-    {
-        public IDatabaseRepository DbContext { get; set; }
-
-        public void Test()
-        {
- 
-        }
-
-        public void Add<T>(T obj)
-        {
-          
-        }
-
-        public void Update()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GetData()
-        {
-            throw new NotImplementedException();
-        }
+        [Microsoft.Practices.Unity.Dependency]
+        public IDatabaseRepository DbRepository { get; set; }
     }
 }

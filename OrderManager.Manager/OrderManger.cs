@@ -13,8 +13,7 @@ namespace OrderManager.Manager
     public class OrderManger : BaseManger, IOrderManger
     {
 
-        [Microsoft.Practices.Unity.Dependency]
-        public IDatabaseRepository dbRepository { get; set; }
+
         public OrderManger()
         {
 
@@ -23,7 +22,7 @@ namespace OrderManager.Manager
         #region Save Method
         public bool SaveProduct(OM_Product product)
         {
-            if (dbRepository.Add(product) > 0)
+            if (DbRepository.Add(product) > 0)
             {
                 return true;
             }
@@ -32,7 +31,7 @@ namespace OrderManager.Manager
 
         public bool SaveSalesOrder(OM_SalesOrder saleOrder)
         {
-            if (dbRepository.Add(saleOrder) > 0)
+            if (DbRepository.Add(saleOrder) > 0)
             {
                 return true;
             }
@@ -40,7 +39,7 @@ namespace OrderManager.Manager
         }
         public bool SaveSalesOrderItem(OM_SalesOrderItem saleOrderItem)
         {
-            if (dbRepository.Add(saleOrderItem) > 0)
+            if (DbRepository.Add(saleOrderItem) > 0)
             {
                 return true;
             }
@@ -51,7 +50,7 @@ namespace OrderManager.Manager
         #region Update Method
         public bool UpdateProduct(OM_Product product)
         {
-            if (dbRepository.Update(product) > 0)
+            if (DbRepository.Update(product) > 0)
             {
                 return true;
             }
@@ -60,7 +59,7 @@ namespace OrderManager.Manager
 
         public bool UpdateSalesOrder(OM_SalesOrder saleOrder)
         {
-            if (dbRepository.Update(saleOrder) > 0)
+            if (DbRepository.Update(saleOrder) > 0)
             {
                 return true;
             }
@@ -68,7 +67,7 @@ namespace OrderManager.Manager
         }
         public bool UpdateSalesOrderItem(OM_SalesOrderItem saleOrderItem)
         {
-            if (dbRepository.Update(saleOrderItem) > 0)
+            if (DbRepository.Update(saleOrderItem) > 0)
             {
                 return true;
             }
@@ -79,7 +78,7 @@ namespace OrderManager.Manager
         #region Update Method
         public bool DeleteProduct(Expression<Func<OM_Product, bool>> product)
         {
-            if (dbRepository.Delete(product) > 0)
+            if (DbRepository.Delete(product) > 0)
             {
                 return true;
             }
@@ -88,7 +87,7 @@ namespace OrderManager.Manager
 
         public bool UpdateSalesOrder(Expression<Func<OM_SalesOrder, bool>> saleOrder)
         {
-            if (dbRepository.Delete(saleOrder) > 0)
+            if (DbRepository.Delete(saleOrder) > 0)
             {
                 return true;
             }
@@ -96,7 +95,7 @@ namespace OrderManager.Manager
         }
         public bool DeleteSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> saleOrderItem)
         {
-            if (dbRepository.Delete(saleOrderItem) > 0)
+            if (DbRepository.Delete(saleOrderItem) > 0)
             {
                 return true;
             }
@@ -108,37 +107,37 @@ namespace OrderManager.Manager
 
         public IList<OM_Product> GetProductList(int PageIndex, int PageSize, Expression<Func<OM_Product, bool>> fuc, Expression<Func<OM_Product, bool>> orderFuc)
         {
-            return dbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
+            return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
 
         public OM_Product GetProduct(Expression<Func<OM_Product, bool>> fuc)
         {
-            return dbRepository.GetModel(fuc);
+            return DbRepository.GetModel(fuc);
 
         }
 
         public IList<OM_SalesOrder> GetSalesOrderList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrder, bool>> fuc, Expression<Func<OM_SalesOrder, bool>> orderFuc)
         {
-            return dbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
+            return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
 
         public OM_SalesOrder GetSalesOrder(Expression<Func<OM_SalesOrder, bool>> fuc)
         {
-            return dbRepository.GetModel(fuc);
+            return DbRepository.GetModel(fuc);
 
         }
 
         public IList<OM_SalesOrderItem> GetSalesOrderItemList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrderItem, bool>> fuc, Expression<Func<OM_SalesOrderItem, bool>> orderFuc)
         {
-            return dbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
+            return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
 
         public OM_SalesOrderItem GetSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> fuc)
         {
-            return dbRepository.GetModel(fuc);
+            return DbRepository.GetModel(fuc);
 
         } 
         #endregion
