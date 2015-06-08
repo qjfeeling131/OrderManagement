@@ -35,6 +35,10 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.Img)
                 .HasMaxLength(250);
 
+            this.Property(t => t.Account)
+                .IsRequired()
+                .HasMaxLength(36);
+
             // Table & Column Mappings
             this.ToTable("OM_User");
             this.Property(t => t.ID).HasColumnName("ID");
@@ -49,6 +53,7 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.IsDel).HasColumnName("IsDel");
             this.Property(t => t.CreateDatetime).HasColumnName("CreateDatetime");
             this.Property(t => t.UpdateDatetime).HasColumnName("UpdateDatetime");
+            this.Property(t => t.Account).HasColumnName("Account");
         }
     }
 }

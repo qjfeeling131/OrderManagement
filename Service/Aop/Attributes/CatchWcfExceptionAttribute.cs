@@ -17,9 +17,6 @@ namespace OrderManager.Service.Aop
         public override Exception HandlerException(Microsoft.Practices.Unity.InterceptionExtension.IMethodInvocation input, Exception exception)
         {
 
-            //if (exception is GenericException)
-            //    exception = exception;
-
             if (exception is WebFaultException<ExceptionDetail>)
                 throw exception;
 

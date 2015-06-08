@@ -3,9 +3,9 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace OrderManager.Model.Models.Mapping
 {
-    public class OM_SalesOrderItemMap : EntityTypeConfiguration<OM_SalesOrderItem>
+    public class OM_OrderItemMap : EntityTypeConfiguration<OM_OrderItem>
     {
-        public OM_SalesOrderItemMap()
+        public OM_OrderItemMap()
         {
             // Primary Key
             this.HasKey(t => t.Guid);
@@ -40,7 +40,7 @@ namespace OrderManager.Model.Models.Mapping
                 .HasMaxLength(250);
 
             // Table & Column Mappings
-            this.ToTable("OM_SalesOrderItem");
+            this.ToTable("OM_OrderItem");
             this.Property(t => t.DocEntry).HasColumnName("DocEntry");
             this.Property(t => t.Guid).HasColumnName("Guid");
             this.Property(t => t.LineNum).HasColumnName("LineNum");

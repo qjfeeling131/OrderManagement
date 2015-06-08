@@ -1,4 +1,5 @@
 ﻿
+using OrderManager.Model.DTO;
 using OrderManager.Model.Models;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,7 @@ namespace OrderManager.Manager
         bool DeletePermission(Expression<Func<OM_Permission, bool>> permission);
         #endregion
 
-        #region Delete Method
+        #region Get Objects
         IList<OM_User> GetUserList(int PageIndex, int PageSize, Expression<Func<OM_User, bool>> fuc, Expression<Func<OM_User, bool>> orderFuc);
         OM_User GetUser(Expression<Func<OM_User, bool>> fuc);
         IList<OM_Log> GetLogList(int PageIndex, int PageSize, Expression<Func<OM_Log, bool>> fuc, Expression<Func<OM_Log, bool>> orderFuc);
@@ -64,6 +65,13 @@ namespace OrderManager.Manager
         IList<OM_UserRole> GetUserRoleList(int PageIndex, int PageSize, Expression<Func<OM_UserRole, bool>> fuc, Expression<Func<OM_UserRole, bool>> orderFuc);
 
         OM_UserRole GetUserRole(Expression<Func<OM_UserRole, bool>> fuc);
+        #endregion
+
+        #region UserAuthority
+
+        public OM_UserAuthority GetUserAuthority(string userGuid);
+ 
+
         #endregion
     }
 }

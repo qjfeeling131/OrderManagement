@@ -14,22 +14,22 @@ namespace OrderManager.Manager
         #region Save Method
          bool SaveProduct(OM_Product product);
 
-         bool SaveSalesOrder(OM_SalesOrder saleOrder);
-         bool SaveSalesOrderItem(OM_SalesOrderItem saleOrderItem);
+         bool SaveSalesOrder(OM_Order saleOrder);
+         bool SaveSalesOrderItem(OM_OrderItem saleOrderItem);
         #endregion
 
         #region Update Method
          bool UpdateProduct(OM_Product product);
 
-         bool UpdateSalesOrder(OM_SalesOrder saleOrder);
-         bool UpdateSalesOrderItem(OM_SalesOrderItem saleOrderItem);
+         bool UpdateSalesOrder(OM_Order saleOrder);
+         bool UpdateSalesOrderItem(OM_OrderItem saleOrderItem);
         #endregion
 
         #region Update Method
          bool DeleteProduct(Expression<Func<OM_Product, bool>> product);
 
-         bool UpdateSalesOrder(Expression<Func<OM_SalesOrder, bool>> saleOrder);
-         bool DeleteSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> saleOrderItem);
+         bool UpdateSalesOrder(Expression<Func<OM_Order, bool>> saleOrder);
+         bool DeleteSalesOrderItem(Expression<Func<OM_OrderItem, bool>> saleOrderItem);
         #endregion
 
         #region Get ont or manay object
@@ -37,12 +37,12 @@ namespace OrderManager.Manager
          IList<OM_Product> GetProductList(int PageIndex, int PageSize, Expression<Func<OM_Product, bool>> fuc, Expression<Func<OM_Product, bool>> orderFuc);
 
          OM_Product GetProduct(Expression<Func<OM_Product, bool>> fuc);
-         IList<OM_SalesOrder> GetSalesOrderList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrder, bool>> fuc, Expression<Func<OM_SalesOrder, bool>> orderFuc);
+         IList<OM_Order> GetSalesOrderList(int PageIndex, int PageSize, Expression<Func<OM_Order, bool>> fuc, Expression<Func<OM_Order, bool>> orderFuc);
 
-         OM_SalesOrder GetSalesOrder(Expression<Func<OM_SalesOrder, bool>> fuc);
+         OM_Order GetSalesOrder(Expression<Func<OM_Order, bool>> fuc);
 
-         IList<OM_SalesOrderItem> GetSalesOrderItemList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrderItem, bool>> fuc, Expression<Func<OM_SalesOrderItem, bool>> orderFuc);
-         OM_SalesOrderItem GetSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> fuc);
+         IList<OM_OrderItem> GetSalesOrderItemList(int PageIndex, int PageSize, Expression<Func<OM_OrderItem, bool>> fuc, Expression<Func<OM_OrderItem, bool>> orderFuc);
+         OM_OrderItem GetSalesOrderItem(Expression<Func<OM_OrderItem, bool>> fuc);
         #endregion
     }
 }

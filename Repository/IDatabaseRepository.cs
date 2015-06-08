@@ -11,7 +11,7 @@ namespace OrderManager.Repository
     {
         int Add<T>(T model) where T : class;
 
-        int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "Active") where T : class;
+        int Delete<T>(Expression<Func<T, bool>> whereLambda = null, string activeProperty = "IsDel") where T : class;
 
         int RealDelete<T>(Expression<Func<T, bool>> whereLambda = null) where T : class;
 

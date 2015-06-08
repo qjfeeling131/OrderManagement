@@ -1,4 +1,5 @@
 ﻿
+using OrderManager.Model.DTO;
 using OrderManager.Model.Models;
 using OrderManager.Repository;
 using System;
@@ -17,6 +18,7 @@ namespace OrderManager.Manager
         {
 
         }
+
         #region Save Method
         public bool SaveUer(OM_User user)
         {
@@ -200,7 +202,7 @@ namespace OrderManager.Manager
         }
         #endregion
 
-        #region Get one or manay Object 
+        #region Get one or manay Object
         public IList<OM_User> GetUserList(int PageIndex, int PageSize, Expression<Func<OM_User, bool>> fuc, Expression<Func<OM_User, bool>> orderFuc)
         {
             return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
@@ -284,5 +286,32 @@ namespace OrderManager.Manager
 
         }
         #endregion
+
+        #region UserAuthority
+
+        public OM_UserAuthority GetUserAuthority(string userGuid)
+        {
+            OM_UserAuthority result = new OM_UserAuthority();
+            result.User = GetUser(o => o.Guid == userGuid);
+
+            var userRole = GetUserRole(o => o.User_Guid == userGuid);
+
+            result.Role = GetRole(o => o.Guid == userRole.Role_Guid);
+
+            var rolePermission = GetRolePermissionList(0, int.MaxValue, o => o.Role_Guid == result.Role.Guid, s => s.ID > 0);
+
+            IList<OM_Permission> permissions = new List<OM_Permission>();
+            foreach (var item in rolePermission)
+            {
+                var permission = GetPermission(o => o.Guid == item.Permission_Guid);
+                if (!permissions.Contains(permission))
+                    permissions.Add(permission);
+            }
+
+            return result;
+        }
+
+        #endregion
+
     }
 }

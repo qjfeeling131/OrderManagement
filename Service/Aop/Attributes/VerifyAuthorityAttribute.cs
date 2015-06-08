@@ -15,6 +15,7 @@ namespace OrderManager.Service.Aop
 
         public override void CheckAuthentication(IMethodInvocation input)
         {
+            
             Console.WriteLine("VerifyAuthority");
         }
     }

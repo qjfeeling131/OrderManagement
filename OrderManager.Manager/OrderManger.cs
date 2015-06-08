@@ -29,7 +29,7 @@ namespace OrderManager.Manager
             return false;
         }
 
-        public bool SaveSalesOrder(OM_SalesOrder saleOrder)
+        public bool SaveSalesOrder(OM_Order saleOrder)
         {
             if (DbRepository.Add(saleOrder) > 0)
             {
@@ -37,7 +37,7 @@ namespace OrderManager.Manager
             }
             return false;
         }
-        public bool SaveSalesOrderItem(OM_SalesOrderItem saleOrderItem)
+        public bool SaveSalesOrderItem(OM_OrderItem saleOrderItem)
         {
             if (DbRepository.Add(saleOrderItem) > 0)
             {
@@ -57,7 +57,7 @@ namespace OrderManager.Manager
             return false;
         }
 
-        public bool UpdateSalesOrder(OM_SalesOrder saleOrder)
+        public bool UpdateSalesOrder(OM_Order saleOrder)
         {
             if (DbRepository.Update(saleOrder) > 0)
             {
@@ -65,7 +65,7 @@ namespace OrderManager.Manager
             }
             return false;
         }
-        public bool UpdateSalesOrderItem(OM_SalesOrderItem saleOrderItem)
+        public bool UpdateSalesOrderItem(OM_OrderItem saleOrderItem)
         {
             if (DbRepository.Update(saleOrderItem) > 0)
             {
@@ -85,7 +85,7 @@ namespace OrderManager.Manager
             return false;
         }
 
-        public bool UpdateSalesOrder(Expression<Func<OM_SalesOrder, bool>> saleOrder)
+        public bool UpdateSalesOrder(Expression<Func<OM_Order, bool>> saleOrder)
         {
             if (DbRepository.Delete(saleOrder) > 0)
             {
@@ -93,7 +93,7 @@ namespace OrderManager.Manager
             }
             return false;
         }
-        public bool DeleteSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> saleOrderItem)
+        public bool DeleteSalesOrderItem(Expression<Func<OM_OrderItem, bool>> saleOrderItem)
         {
             if (DbRepository.Delete(saleOrderItem) > 0)
             {
@@ -117,25 +117,25 @@ namespace OrderManager.Manager
 
         }
 
-        public IList<OM_SalesOrder> GetSalesOrderList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrder, bool>> fuc, Expression<Func<OM_SalesOrder, bool>> orderFuc)
+        public IList<OM_Order> GetSalesOrderList(int PageIndex, int PageSize, Expression<Func<OM_Order, bool>> fuc, Expression<Func<OM_Order, bool>> orderFuc)
         {
             return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
 
-        public OM_SalesOrder GetSalesOrder(Expression<Func<OM_SalesOrder, bool>> fuc)
+        public OM_Order GetSalesOrder(Expression<Func<OM_Order, bool>> fuc)
         {
             return DbRepository.GetModel(fuc);
 
         }
 
-        public IList<OM_SalesOrderItem> GetSalesOrderItemList(int PageIndex, int PageSize, Expression<Func<OM_SalesOrderItem, bool>> fuc, Expression<Func<OM_SalesOrderItem, bool>> orderFuc)
+        public IList<OM_OrderItem> GetSalesOrderItemList(int PageIndex, int PageSize, Expression<Func<OM_OrderItem, bool>> fuc, Expression<Func<OM_OrderItem, bool>> orderFuc)
         {
             return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
 
-        public OM_SalesOrderItem GetSalesOrderItem(Expression<Func<OM_SalesOrderItem, bool>> fuc)
+        public OM_OrderItem GetSalesOrderItem(Expression<Func<OM_OrderItem, bool>> fuc)
         {
             return DbRepository.GetModel(fuc);
 

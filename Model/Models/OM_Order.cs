@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace OrderManager.Model.Models
 {
-    public partial class OM_SalesOrder
+    public partial class OM_Order
     {
         public int DocEntry { get; set; }
         public string Guid { get; set; }

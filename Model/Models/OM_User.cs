@@ -17,5 +17,6 @@ namespace OrderManager.Model.Models
         public bool IsDel { get; set; }
         public Nullable<System.DateTime> CreateDatetime { get; set; }
         public Nullable<System.DateTime> UpdateDatetime { get; set; }
+        public string Account { get; set; }
     }
 }
