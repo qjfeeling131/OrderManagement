@@ -10,7 +10,8 @@ namespace OrderManager.Service
 
     public class UtilsService : BaseService, IUtilsService
     {
-        public void DoWork()
+        //每个方法都用 用guid () 用对称加密
+        public void DoWork(string Hash)
         {
 
         }
