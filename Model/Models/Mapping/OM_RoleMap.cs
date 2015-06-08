@@ -31,7 +31,7 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.Guid).HasColumnName("Guid");
             this.Property(t => t.Department_Guid).HasColumnName("Department_Guid");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.IsShow).HasColumnName("IsShow");
+            this.Property(t => t.ParentID).HasColumnName("IsShow");
             this.Property(t => t.IsDel).HasColumnName("IsDel");
             this.Property(t => t.CreateDatetiime).HasColumnName("CreateDatetiime");
             this.Property(t => t.UpdateDateTime).HasColumnName("UpdateDateTime");
