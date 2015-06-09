@@ -67,10 +67,11 @@ namespace OrderManager.Manager
         OM_UserRole GetUserRole(Expression<Func<OM_UserRole, bool>> fuc);
         #endregion
 
-        #region UserAuthority
+        #region User Function
 
-        public OM_UserAuthority GetUserAuthority(string userGuid);
- 
+        OM_UserAuthority GetUserAuthority(string userGuid);
+
+        bool Login(string userAccount, string password);
 
         #endregion
     }

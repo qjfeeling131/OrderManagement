@@ -18,5 +18,6 @@ namespace OrderManager.Model.Models
         public Nullable<System.DateTime> CreateDatetime { get; set; }
         public Nullable<System.DateTime> UpdateDatetime { get; set; }
         public string Account { get; set; }
+        public string Key { get; set; }
     }
 }

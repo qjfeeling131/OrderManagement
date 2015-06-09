@@ -196,6 +196,12 @@
   <ItemGroup>
     <Content Include="Views\Order\index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OrderManager.Common\OrderManager.Common.csproj">
+      <Project>{e105e25b-5e2a-4724-9b98-5c61033e2722}</Project>
+      <Name>OrderManager.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

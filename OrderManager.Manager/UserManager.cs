@@ -1,4 +1,5 @@
 ﻿
+using OrderManager.Common;
 using OrderManager.Model.DTO;
 using OrderManager.Model.Models;
 using OrderManager.Repository;
@@ -287,7 +288,7 @@ namespace OrderManager.Manager
         }
         #endregion
 
-        #region UserAuthority
+        #region Function
 
         public OM_UserAuthority GetUserAuthority(string userGuid)
         {
@@ -310,6 +311,20 @@ namespace OrderManager.Manager
 
             return result;
         }
+
+        public bool Login(string userAccount, string password)
+        {
+            bool result = false;
+            var user = GetUser(f => f.Account == userAccount && f.Pwd == password);
+            if (user != null)
+            {
+                user.Key = Encryptor.GenerateKey();
+                UpdateUer(user);
+                result = true;
+            }
+            return result;
+        }
+
 
         #endregion
 

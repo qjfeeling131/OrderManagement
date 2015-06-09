@@ -18,6 +18,7 @@ namespace OrderManager.Service
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]   
     [Aop.VerifyAuthority]
     [Aop.CatchWcfException]
+    [Aop.WCFTransaction]
     public class BaseService 
     {
   

@@ -12,7 +12,9 @@ namespace OrderManager.Service
             _container = container;
             RegistNSetInterceptor<IOrderManger, OrderManger>(); 
             RegistNSetInterceptor<IUserManager, UserManager>(); 
-            RegistNSetInterceptor<ITestService, TestService>(); // 不注册拦截不到
+            RegistNSetInterceptor<IOrderService, OrderService>();
+            RegistNSetInterceptor<IUserService, UserService>();
+
         }
 
         #region private 

@@ -8,12 +8,10 @@ using System.Text;
 namespace OrderManager.Service
 {
 
-    public class OrderService : BaseService, IOrderService
+    [ServiceContract]
+    public interface IOrderService
     {
-        //每个方法都用 用guid () 用对称加密
-        //public void DoWork(string Hash)
-        //{
-
-        //}
+        //[OperationContract]
+        //void DoWork();
     }
 }
