@@ -14,6 +14,7 @@ namespace OrderManager.Service
             RegistNSetInterceptor<IUserManager, UserManager>(); 
             RegistNSetInterceptor<IOrderService, OrderService>();
             RegistNSetInterceptor<IUserService, UserService>();
+            
 
         }
 

@@ -1,13 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Model", "Model\OrderManager.Model.csproj", "{01171FC6-341B-4F62-A172-DDCF95585681}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Repository", "Repository\OrderManager.Repository.csproj", "{8C1BD3B1-6C97-4643-9F97-B891227CC86F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Web", "Web\OrderManager.Web.csproj", "{F8592216-7BA2-4240-B701-71AD05FABC4B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D6028A76-B222-4B42-81E0-CF8101809F46} = {D6028A76-B222-4B42-81E0-CF8101809F46}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager.Manager", "OrderManager.Manager\OrderManager.Manager.csproj", "{B620C208-6B14-4DC0-957B-18840B39EA1C}"
 EndProject

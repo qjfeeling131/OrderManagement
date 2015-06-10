@@ -14,5 +14,7 @@ namespace OrderManager.Web.Models
         public string Type { get; set; }
 
         public string Target { get; set; }
+
+        public string Code { get; set; }
     }
 }

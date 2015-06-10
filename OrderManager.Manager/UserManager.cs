@@ -84,6 +84,8 @@ namespace OrderManager.Manager
         #region Update Method
         public bool UpdateUer(OM_User user)
         {
+            if (user != null)
+                user.UpdateDatetime = DateTime.Now;
             if (DbRepository.Update(user) > 0)
             {
                 return true;
@@ -318,8 +320,6 @@ namespace OrderManager.Manager
             var user = GetUser(f => f.Account == userAccount && f.Pwd == password);
             if (user != null)
             {
-                user.Key = Encryptor.GenerateKey();
-                UpdateUer(user);
                 result = true;
             }
             return result;

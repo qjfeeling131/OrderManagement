@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace OrderManager.Repository
 {
-    public abstract class DatabaseRepository : IDatabaseRepository
+    public  class DatabaseRepository : IDatabaseRepository
     {
         private DbContext _dbContext;
 

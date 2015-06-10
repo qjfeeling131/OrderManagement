@@ -34,7 +34,7 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.ParentID).HasColumnName("IsShow");
             this.Property(t => t.IsDel).HasColumnName("IsDel");
             this.Property(t => t.CreateDatetiime).HasColumnName("CreateDatetiime");
-            this.Property(t => t.UpdateDateTime).HasColumnName("UpdateDateTime");
+            this.Property(t => t.UpdateDateTime).HasColumnName("UpdateDateTime"); 
         }
     }
 }

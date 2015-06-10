@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web;
 using System.ServiceModel;
 using OrderManager.Web.Models;
+using OrderManager.Model.Models;
 
 
 namespace OrderManager.Web
@@ -20,7 +21,7 @@ namespace OrderManager.Web
                 model = new ErrorModel();
             return View("~/Views/Template/Exception.cshtml", model);
         }
-       
+
 
         protected string GetCookie(string key)
         {
@@ -48,7 +49,7 @@ namespace OrderManager.Web
 
         }
 
-        public BaseController() 
+        public BaseController()
         {
             //Cache = Tools.DistrubutedCache;
         }
@@ -78,23 +79,26 @@ namespace OrderManager.Web
             if (wcfException != null)
             {
 
-                model.Message = GetExceptionDetail(wcfException.Detail);
+                //string json = GetWcfExceptionDetail(wcfException.Detail);
+                //var result = Common.Serializer.DeserilizeJson<OM_ExceptionMessage>(json);
+                model.Message = GetWcfExceptionDetail(wcfException.Detail);// result.Message;
+                //model.Code = result.Code;
             }
             else
             {
                 model.Message = GetExceptionDetail(filterContext.Exception);
             }
-            //createDialog("Login/Exception");
-            filterContext.Result = JavaScript("createDialog('Base/Exception')");
+
+            filterContext.Result = JavaScript("createDialog('" + Url.Content("~/base/exception") + "')");
 
         }
 
-        private string GetExceptionDetail(ExceptionDetail ex)
+        private string GetWcfExceptionDetail(ExceptionDetail ex)
         {
             string str = string.Concat(ex.Message, "  "); // ex.StackTrace
             if (ex.InnerException != null)
             {
-                str = string.Concat(str, this.GetExceptionDetail(ex.InnerException));
+                str = string.Concat(str, this.GetWcfExceptionDetail(ex.InnerException));
             }
             return str;
         }

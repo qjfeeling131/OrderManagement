@@ -19,6 +19,12 @@ namespace OrderManager.Model.DTO
         public OM_Role Role { get; set; }
 
         [DataMember]
+        public string AreaName { get; set; }
+
+        [DataMember]
+        public string DepartmentName { get; set; }
+
+        [DataMember]
         public IList<OM_Permission> Permission { get; set; }
 
     }

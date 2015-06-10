@@ -15,7 +15,7 @@ namespace OrderManager.Common
     public class Serializer
     {
 
-        public T DeserilizeBinary<T>(MemoryStream data)
+        public static T DeserilizeBinary<T>(MemoryStream data)
         {
 
             var formater = new BinaryFormatter();
@@ -23,7 +23,7 @@ namespace OrderManager.Common
             return (T)result;
         }
 
-        public MemoryStream SerilizeAsBinary(object data)
+        public static MemoryStream SerilizeAsBinary(object data)
         {
             MemoryStream ms;
             using (ms = new MemoryStream())
@@ -34,7 +34,7 @@ namespace OrderManager.Common
             return ms;
         }
 
-        public string SerilizeAsXml<T>(T data)
+        public static string SerilizeAsXml<T>(T data)
         {
             using (MemoryStream stream = new MemoryStream())
             {
@@ -48,7 +48,7 @@ namespace OrderManager.Common
             }
         }
 
-        private void XmlSerializeInternal(Stream stream, object o, Encoding encoding)
+        private static void XmlSerializeInternal(Stream stream, object o, Encoding encoding)
         {
             if (o == null)
                 throw new ArgumentNullException("o");
@@ -70,7 +70,7 @@ namespace OrderManager.Common
             }
         }
 
-        public T DeserilizeXml<T>(string data)
+        public static T DeserilizeXml<T>(string data)
         {
             if (string.IsNullOrEmpty(data))
                 throw new ArgumentNullException("s");
@@ -86,7 +86,7 @@ namespace OrderManager.Common
 
         }
 
-        public string SerilizeAsJson<T>(T data)
+        public static string SerilizeAsJson<T>(T data)
         {
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
             MemoryStream ms = new MemoryStream();
@@ -96,7 +96,7 @@ namespace OrderManager.Common
             return jsonString;
         }
 
-        public T DeserilizeJson<T>(string data)
+        public static T DeserilizeJson<T>(string data)
         {
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(data));

@@ -11,7 +11,15 @@ namespace OrderManager.Manager
 
     public abstract class BaseManger
     {
-        [Microsoft.Practices.Unity.Dependency]
-        public IDatabaseRepository DbRepository { get; set; }
+        private IDatabaseRepository _dbRepository;
+        public IDatabaseRepository DbRepository
+        {
+            get
+            {
+                if (_dbRepository == null)
+                    _dbRepository = new DatabaseRepository();
+                return _dbRepository;
+            }
+        }
     }
 }
