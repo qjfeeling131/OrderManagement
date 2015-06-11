@@ -41,6 +41,8 @@ namespace OrderManager.Web
         [HttpPost]
         public RedirectResult Login(string UserCode, string Password, bool? IsRememeber)  //json 格式不能传null
         {
+            throw new Exception("aaaa");
+
             var pwd = Encryptor.MD5Encrypt(Password).ToUpper();
             var authority = UserService.Login(UserCode, pwd);
 
