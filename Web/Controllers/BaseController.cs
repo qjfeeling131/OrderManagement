@@ -89,7 +89,12 @@ namespace OrderManager.Web
                 model.Message = GetExceptionDetail(filterContext.Exception);
             }
 
-            filterContext.Result = JavaScript("createDialog('" + Url.Content("~/base/exception") + "')");
+            if (HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+                  filterContext.Result = JavaScript("createDialog('" + Url.Content("~/base/exception") + "')");
+                //ajax return script        //eval('(' + text + ')');  考虑ajax异常返回字符串  eval解析执行
+                //filterContext.Result = Json("createDialog('" + Url.Content("~/base/exception") + "')");
+            else
+                filterContext.Result = View("~/Views/Template/ExceptionPage.cshtml", model); 
 
         }
 

@@ -28,7 +28,7 @@ namespace OrderManager.Web
 
         public ViewResult Login()
         {
-            return View();
+            return View();//View("~/views/template/exceptionPage.cshtml");
         }
 
 

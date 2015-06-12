@@ -175,10 +175,10 @@
     <None Include="Service References\UserService\UserService3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Template\exceptionPage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
