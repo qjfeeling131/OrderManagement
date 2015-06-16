@@ -21,5 +21,11 @@ namespace OrderManager.Web
         {
             return View();
         }
+
+
+        public ViewResult UserList()
+        {
+            return View();
+        }
     }
 }

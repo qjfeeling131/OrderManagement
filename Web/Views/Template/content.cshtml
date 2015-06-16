@@ -107,43 +107,51 @@
         
         <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview">
-                <a href="#">
-                    <i class="glyphicon glyphicon-home"></i> <span>Product Page</span>
-                </a>
-           
-            </li>
-            <li class="treeview">
-                <a href="~/user/index">
-                    <i class="glyphicon glyphicon-user"></i> <span>User Profile</span> @* 密码修改，账户设置 *@
-                </a>  
-            </li>
-            <li class="treeview">
-                <a href="~/log/index">
-                    <i class="glyphicon glyphicon-edit"></i>
-                    <span>Log</span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-                    <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Boxed</a></li>
-                    <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Fixed</a></li>
-                    <li><a href="../layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
-                </ul>
-            </li>
-                 
             <li class="treeview active">
                 <a href="#">
-                    <i class="glyphicon glyphicon-file"></i>
-                    <span>Order Manage</span>
-                    <span class="label label-primary pull-right">4</span>
+                    <i class="glyphicon glyphicon-home"></i> <span>产品列表</span>
+                </a>
+
+            </li>
+            <li class="treeview active">
+                <a href="~/user/index">
+                    <i class="glyphicon glyphicon-user"></i> <span>用户管理</span> @* 密码修改，账户设置 *@
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="general.html"><i class="glyphicon glyphicon-indent-left"></i> General</a></li>
-                    <li class="active"><a href="icons.html"><i class="glyphicon glyphicon-indent-left"></i> Icons</a></li>
-                    <li><a href="buttons.html"><i class="glyphicon glyphicon-indent-left"></i> Buttons</a></li>
+                    <li><a href="../layout/top-nav.html"><i class="glyphicon glyphicon-chevron-right"></i> 个人设置</a></li>
+                    <li><a href="../layout/boxed.html"><i class="glyphicon glyphicon-chevron-right"></i> 下属用户</a></li>
                 </ul>
             </li>
 
+            <li class="treeview active">
+                <a href="#">
+                    <i class="glyphicon glyphicon-file"></i>
+                    <span>订单管理</span>
+                    <span class="label label-primary pull-right">4</span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="general.html"><i class="glyphicon glyphicon-chevron-right"></i> General</a></li>
+                    <li class="active"><a href="icons.html"><i class="glyphicon glyphicon-chevron-right"></i> Icons</a></li>
+                    <li><a href="buttons.html"><i class="glyphicon glyphicon-chevron-right"></i> Buttons</a></li>
+                </ul>
+            </li>
+
+            <li class="treeview active">
+                <a href="~/log/index">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    <span>日志管理</span>
+                </a>
+            </li>
+                 
+   
+
+            <li class="treeview active">
+                <a href="#">
+                    <i class="glyphicon glyphicon-comment"></i>
+                    <span>留言板</span>
+                    <span class="label label-primary pull-right"></span>
+                </a>
+            </li>
 
         </ul>
     </section>
@@ -187,6 +195,10 @@
     <script>
         $(function () {
             $('body').addClass('skin-blue fixed');
+
+            console.log($(".sidebar-menu >.treeview "));
+
+
 
         });
     </script>

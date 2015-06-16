@@ -10,6 +10,7 @@ using System.Net.NetworkInformation;
 using System.Net;
 using System.Web;
 using Web.UserService;
+using OrderManager.Web.Models;
 
 
 
@@ -28,7 +29,7 @@ namespace OrderManager.Web
 
         public ViewResult Login()
         {
-            return View();//View("~/views/template/exceptionPage.cshtml");
+            return View();
         }
 
 
@@ -39,9 +40,10 @@ namespace OrderManager.Web
 
 
         [HttpPost]
-        public RedirectResult Login(string UserCode, string Password, bool? IsRememeber)  //json 格式不能传null
+        public JsonResult Login(string UserCode, string Password, bool? IsRememeber)  //json 格式不能传null
         {
-            throw new Exception("aaaa");
+            //throw new Exception("aa");
+            return Json(new JsonModel { Code = 1, Type = "RedirectLocation", Data=null});
 
             var pwd = Encryptor.MD5Encrypt(Password).ToUpper();
             var authority = UserService.Login(UserCode, pwd);
@@ -49,8 +51,9 @@ namespace OrderManager.Web
             if (IsRememeber == true)
                 Session[UserCode] = string.Format("{0},{1}", UserCode, Password).GetHashCode();
 
-            return Redirect("~/home/home");
+            return Json(new JsonModel { Code = 1 ,Type="RedirectLocation"});
         }
+
 
         public RedirectResult SignOut()
         {

@@ -7,6 +7,7 @@ using System.Web;
 using System.ServiceModel;
 using OrderManager.Web.Models;
 using OrderManager.Model.Models;
+using System.Web.Script.Serialization;
 
 
 namespace OrderManager.Web
@@ -73,28 +74,32 @@ namespace OrderManager.Web
         protected override void OnException(ExceptionContext filterContext)
         {
             filterContext.ExceptionHandled = true;
-            ErrorModel model = new ErrorModel();
-
+            ErrorModel errormodel = new ErrorModel();
+            JsonModel resultModel = new JsonModel() { Code = 0 };
             var wcfException = filterContext.Exception as FaultException<ExceptionDetail>;
             if (wcfException != null)
             {
 
                 //string json = GetWcfExceptionDetail(wcfException.Detail);
                 //var result = Common.Serializer.DeserilizeJson<OM_ExceptionMessage>(json);
-                model.Message = GetWcfExceptionDetail(wcfException.Detail);// result.Message;
+                errormodel.Message = GetWcfExceptionDetail(wcfException.Detail);// result.Message;
                 //model.Code = result.Code;
             }
             else
             {
-                model.Message = GetExceptionDetail(filterContext.Exception);
+                errormodel.Message = GetExceptionDetail(filterContext.Exception);
             }
 
             if (HttpContext.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
-                  filterContext.Result = JavaScript("createDialog('" + Url.Content("~/base/exception") + "')");
-                //ajax return script        //eval('(' + text + ')');  考虑ajax异常返回字符串  eval解析执行
-                //filterContext.Result = Json("createDialog('" + Url.Content("~/base/exception") + "')");
+            {
+
+                JavaScriptSerializer jsonSerializer = new JavaScriptSerializer();
+                resultModel.Data = "createDialog('" + Url.Content("~/base/exception") + "'," + jsonSerializer.Serialize(errormodel) + ")";
+                filterContext.Result = Json(resultModel);
+            }
+            //filterContext.Result = JavaScript("createDialog('" + Url.Content("~/base/exception") + "')");
             else
-                filterContext.Result = View("~/Views/Template/ExceptionPage.cshtml", model); 
+                filterContext.Result = View("~/Views/Template/ExceptionPage.cshtml", errormodel);
 
         }
 

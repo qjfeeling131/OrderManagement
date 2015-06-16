@@ -21,13 +21,16 @@
 
 
 @section body{
-    <section>
+   <section>
         <div class="login-box ">
             <div class="login-logo">
                 <a href="#"><b>高山药业经销商平台</b></a>
             </div><!-- /.login-logo -->
             <div class="login-box-body">
-                <p class="login-box-msg">欢迎使用</p>
+                <p class="login-box-msg">
+                    <span class="glyphicon glyphicon-home"></span>
+                    <b>&nbsp;欢迎使用</b>
+                </p>
                 <form method="post" id="form_login">
                     <div class="form-group has-feedback">
                         <input type="text" name="UserCode" class="form-control" required placeholder="账户名" />
@@ -55,6 +58,7 @@
         </div>
     </section>
 
+
 }
 
 @section script{
@@ -72,15 +76,15 @@
                 $('#IsRememeber').val(true);
             });
 
+
             $('#submit').click(function () {
-                //loading
-                var data = $("#form_login").serialize();
-                alert("1");
-                $.post("home/login", data, function (json) {
-                    alert("2");
-                    alert(json);
-                }, "script");
+
+                getAsynData("home/login", $("#form_login").serialize(), function (json) {
+                
+                    location.href = "home/home";
+                });
             });
+
         });
     </script>
 }
