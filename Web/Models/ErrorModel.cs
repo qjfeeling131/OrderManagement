@@ -5,7 +5,7 @@ using System.Web;
 
 namespace OrderManager.Web.Models
 {
-    public class ErrorModel
+    public class InfoModel
     {
         public string Title { get; set; }
 

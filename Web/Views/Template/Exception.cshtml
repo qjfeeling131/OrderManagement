@@ -3,14 +3,13 @@
     Layout = "~/Views/Template/dialog.cshtml";
 }
 
-@model OrderManager.Web.Models.ErrorModel
+@model OrderManager.Web.Models.InfoModel
 
 @section title {
-    <h3 style="font-weight:bold">@Model.Title</h3>
+    <h4 style="font-weight:bold">@Model.Title</h4>
 }
 
 @section Message{
-    @Model.Target
     @Model.Message
 }
 

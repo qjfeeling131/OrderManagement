@@ -78,10 +78,10 @@
 
 
             $('#submit').click(function () {
-
-                getAsynData("home/login", $("#form_login").serialize(), function (json) {
                 
-                    location.href = "home/home";
+                getAsynData("../home/login", $("#form_login").serialize(), function (json) {
+                
+                    location.href = json.Data;
                 });
             });
 

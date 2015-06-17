@@ -16,4 +16,12 @@ namespace OrderManager.Web.Models
 
     }
 
+
+    public enum JsonTypeEnym
+    {
+        Redirect,
+        AsynData,
+        Info
+    }
+
 }

@@ -16,10 +16,10 @@ namespace OrderManager.Web
     {
 
         //public ICache Cache { get; set; }
-        public ViewResult Exception(Models.ErrorModel model)
+        public ViewResult Exception(Models.InfoModel model)
         {
             if (model == null)
-                model = new ErrorModel();
+                model = new InfoModel();
             return View("~/Views/Template/Exception.cshtml", model);
         }
 
@@ -74,7 +74,7 @@ namespace OrderManager.Web
         protected override void OnException(ExceptionContext filterContext)
         {
             filterContext.ExceptionHandled = true;
-            ErrorModel errormodel = new ErrorModel();
+            InfoModel errormodel = new InfoModel() { Title = "错误"};
             JsonModel resultModel = new JsonModel() { Code = 0 };
             var wcfException = filterContext.Exception as FaultException<ExceptionDetail>;
             if (wcfException != null)

@@ -10,12 +10,6 @@
 
 
 @section body{
-
-
-
-
-
-
     <header class="main-header">
         <a href="~/home/home" class="logo">
             <!-- LOGO -->
@@ -77,7 +71,7 @@
                                     <a href="~/user/index" class="btn btn-default btn-flat">个人设置</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="~/home/login" id="signOut" class="btn btn-default btn-flat">登出</a>
+                                    <a href="#" id="signOut" class="btn btn-default btn-flat">登出</a>
                                 </div>
                             </li>
                         </ul>
@@ -98,7 +92,7 @@
                 </div>
                 <div class="pull-left info">
                     <p>Randy</p>
-                    <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> Online</a>
+                    <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> 在线</a>
                 </div>
             </div>
 
@@ -125,7 +119,7 @@
                     <a href="#">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>订单管理</span>
-                        <span class="label label-primary pull-right">4</span>
+                        @*<span class="label label-primary pull-right">4</span>*@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="~/order/index"><i class="glyphicon glyphicon-chevron-right"></i> index</a></li>
@@ -185,11 +179,15 @@
 }
 
 @section script{
-   @* <script src="~/Js/utility/jquery.min.js"></script>*@
-
     <script>
         $(function () {
             $('body').addClass('skin-blue fixed');
+
+            $("#signOut").click(function () {
+                getAsynData("../home/SignOut", null, function (json) {
+                    location.href = json.Data;
+                });
+            });
 
             $(".sidebar-menu .treeview").each(function () {
                 $(this).click(function () {
@@ -201,7 +199,7 @@
                         $("ul", treeview).slideDown("normal");
                     else
                         $("ul", treeview).slideToggle("normal", function () { treeview.removeClass("active"); });
-           
+
                     treeview.addClass("active");
 
                 });

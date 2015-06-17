@@ -40,10 +40,10 @@ namespace OrderManager.Web
 
 
         [HttpPost]
-        public JsonResult Login(string UserCode, string Password, bool? IsRememeber)  //json 格式不能传null
+        public JsonResult Login(string UserCode, string Password, bool? IsRememeber)  //json 不能传null
         {
             //throw new Exception("aa");
-            return Json(new JsonModel { Code = 1, Type = "RedirectLocation", Data=null});
+            return Json(new JsonModel { Code = 1, Type = JsonTypeEnym.Redirect.ToString(), Data = Url.Content("~/home/home") });
 
             var pwd = Encryptor.MD5Encrypt(Password).ToUpper();
             var authority = UserService.Login(UserCode, pwd);
@@ -55,11 +55,11 @@ namespace OrderManager.Web
         }
 
 
-        public RedirectResult SignOut()
-        {
-            //Cache.Remove("User");  登出 不能再登入？ bug
+        [HttpPost]
+        public JsonResult SignOut()
+        {     
             Session["User"] = null;
-            return Redirect("~/home/login");
+            return Json(new JsonModel { Code = 1, Type = JsonTypeEnym.Redirect.ToString(), Data = Url.Content("~/home/login") });
         }
 
     }
