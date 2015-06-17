@@ -3,18 +3,18 @@
 }
 
 
-@section title{ 经销商平台 | 下属用户 }
+@section title{ 经销商平台 | 留言板 }
 
 
 @section content_header{
 
     <h1>
-         下属用户
-        <small>列表</small>
+        <b>留言板</b>
+        <small>一些建议</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="~/home/home"><i class="glyphicon glyphicon-home"></i>主页</a></li>
-        <li class="active">下属用户</li>
+        <li><a href="~/home/home"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+        <li class="active">留言板</li>
     </ol>
 }
 
@@ -24,7 +24,7 @@
 <div class="row">
     <div class="col-xs-12">
         <div class="nav-tabs-custom">
-            userlist
+            log
             <div style="height:400px;"></div>
         </div>
     </div>
@@ -36,9 +36,7 @@
     @*<script src="~/Js/utility/jquery.min.js"></script>*@
     <script>
         $(function () {
-            $("#userManager").addClass("active");
-            $("#userManager .treeview-menu").attr("display", "block");
-            $("#userManager .treeview-menu>li").eq(1).addClass("active");
+            $("#messageManager").addClass("active");
         })
     </script>
 }

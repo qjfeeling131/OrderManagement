@@ -57,7 +57,7 @@ namespace OrderManager.Web
 
         public RedirectResult SignOut()
         {
-            //Cache.Remove("User");
+            //Cache.Remove("User");  登出 不能再登入？ bug
             Session["User"] = null;
             return Redirect("~/home/login");
         }

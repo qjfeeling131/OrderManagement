@@ -16,7 +16,14 @@ namespace OrderManager.Web
 {
     public class LogController : BaseController
     {
+        //日记
         public ViewResult Index()
+        {
+            return View();
+        }
+
+        //留言板
+        public ViewResult MessageBoard()
         {
             return View();
         }

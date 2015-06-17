@@ -3,31 +3,41 @@
 }
 
 
-@section title{ Oreder Managerment | User Profile }
+@section title{ 经销商平台 | 日志 }
 
 
 @section content_header{
 
     <h1>
-        User Profile
-        <small>a set of beautiful products</small>
+        <b>日志</b>
+        <small>历史记录</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-        <li class="active">Product</li>
+        <li><a href="~/home/home"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
+        <li class="active">日志</li>
     </ol>
 }
 
 
 @section content{
 
-<div class="row">
-    <div class="col-xs-12">
-        <div class="nav-tabs-custom">
-            log
-            <div style="height:400px;"></div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="nav-tabs-custom">
+                log
+                <div style="height:400px;"></div>
+            </div>
         </div>
     </div>
-</div>
-   
+
+}
+
+
+@section script{
+    @*<script src="~/Js/utility/jquery.min.js"></script>*@
+    <script>
+        $(function () {
+            $("#logManager").addClass("active");
+        })
+    </script>
 }

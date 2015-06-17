@@ -7,9 +7,6 @@
     @RenderSection("title", false)
 }
 
-@section head{
-<link href="~/Css/skin-blue.min.css" rel="stylesheet" />
-}
 
 
 @section body{
@@ -19,188 +16,199 @@
 
 
 
-<header class="main-header">
-    <a href="#" class="logo">
-        <!-- LOGO -->
-       <b>OM</b>System
-    </a>
+    <header class="main-header">
+        <a href="~/home/home" class="logo">
+            <!-- LOGO -->
+            <b>经销商平台</b>
+        </a>
 
-    <nav class="navbar navbar-static-top" role="navigation">      
-        <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-                <!-- Messages: style can be found in dropdown.less-->
-                <li class="dropdown messages-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">                   
-                        <i class="glyphicon glyphicon-shopping-cart"></i>
-                        <span class="label label-warning">4</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header">You have 4 items</li>
-                        <li>
-                            <!-- inner menu: contains the actual data -->
-                            <ul class="menu">
-                                <li>
-                                    <!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
-                                            <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
-                                        </div>
-                                        <h4>
-                                            Sender Name
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Message Excerpt</p>
-                                    </a>
-                                </li><!-- end message -->
-                                ...
-                            </ul>
-                        </li>
-                        <li class="footer"><a href="#">Into Shopping Car</a></li>
-                    </ul>
-                </li>
-                  
-                <!-- User Account: style can be found in dropdown.less -->
-                <li class="dropdown user user-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="glyphicon glyphicon-user"></i>
-                        <span class="hidden-xs">User Name</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <!-- User image -->
-                        <li class="user-header">
-                            <img src="~/img/me.svg" width="90" height="90" class="img-circle" alt="User Image" />
-                            <p>
-                                User Name
-                                <small>Member since Nov. 2012</small>
-                            </p>
-                        </li>
-                        <!-- Menu Footer-->
-                        <li class="user-footer">
-                            <div class="pull-left">
-                                <a href="~/user/index" class="btn btn-default btn-flat">Profile</a>
-                            </div>
-                            <div class="pull-right">
-                                <a href="~/home/signout" id="signOut" class="btn btn-default btn-flat">Sign out</a>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-       
-            </ul>
-        </div>
-    </nav>
-</header>
+        <nav class="navbar navbar-static-top" role="navigation">
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    <!-- Messages: style can be found in dropdown.less-->
+                    <li class="dropdown messages-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-shopping-cart"></i>
+                            <span class="label label-warning">4</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 items</li>
+                            <li>
+                                <!-- inner menu: contains the actual data -->
+                                <ul class="menu">
+                                    <li>
+                                        <!-- start message -->
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
+                                            </div>
+                                            <h4>
+                                                Sender Name
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Message Excerpt</p>
+                                        </a>
+                                    </li><!-- end message -->
+                                    ...
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">Into Shopping Car</a></li>
+                        </ul>
+                    </li>
 
-<aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="~/img/me.svg" width="45" height="45" class="img-circle" alt="User Image">
-            </div>
-            <div class="pull-left info">
-                <p>Randy</p>
-                <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> Online</a>
-            </div>
-        </div>
-        
-        <ul class="sidebar-menu">
-            <li class="header">MAIN NAVIGATION</li>
-            <li class="treeview active">
-                <a href="#">
-                    <i class="glyphicon glyphicon-home"></i> <span>产品列表</span>
-                </a>
+                    <!-- User Account: style can be found in dropdown.less -->
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="glyphicon glyphicon-user"></i>
+                            <span class="hidden-xs">User Name</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <!-- User image -->
+                            <li class="user-header">
+                                <img src="~/img/me.svg" width="90" height="90" class="img-circle" alt="User Image" />
+                                <p>
+                                    User Name
+                                    <small>Member since Nov. 2012</small>
+                                </p>
+                            </li>
+                            <!-- Menu Footer-->
+                            <li class="user-footer">
+                                <div class="pull-left">
+                                    <a href="~/user/index" class="btn btn-default btn-flat">个人设置</a>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="~/home/login" id="signOut" class="btn btn-default btn-flat">登出</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
 
-            </li>
-            <li class="treeview active">
-                <a href="~/user/index">
-                    <i class="glyphicon glyphicon-user"></i> <span>用户管理</span> @* 密码修改，账户设置 *@
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="../layout/top-nav.html"><i class="glyphicon glyphicon-chevron-right"></i> 个人设置</a></li>
-                    <li><a href="../layout/boxed.html"><i class="glyphicon glyphicon-chevron-right"></i> 下属用户</a></li>
                 </ul>
-            </li>
+            </div>
+        </nav>
+    </header>
 
-            <li class="treeview active">
-                <a href="#">
-                    <i class="glyphicon glyphicon-file"></i>
-                    <span>订单管理</span>
-                    <span class="label label-primary pull-right">4</span>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="general.html"><i class="glyphicon glyphicon-chevron-right"></i> General</a></li>
-                    <li class="active"><a href="icons.html"><i class="glyphicon glyphicon-chevron-right"></i> Icons</a></li>
-                    <li><a href="buttons.html"><i class="glyphicon glyphicon-chevron-right"></i> Buttons</a></li>
-                </ul>
-            </li>
-
-            <li class="treeview active">
-                <a href="~/log/index">
-                    <i class="glyphicon glyphicon-edit"></i>
-                    <span>日志管理</span>
-                </a>
-            </li>
-                 
-   
-
-            <li class="treeview active">
-                <a href="#">
-                    <i class="glyphicon glyphicon-comment"></i>
-                    <span>留言板</span>
-                    <span class="label label-primary pull-right"></span>
-                </a>
-            </li>
-
-        </ul>
-    </section>
-    <!-- /.sidebar -->
-</aside>
-
-<div class="content-wrapper" style="min-height: 900px;">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        @RenderSection("content_header", true)
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="nav-tabs-custom">
-                    @RenderSection("content", true)
+    <aside class="main-sidebar">
+        <!-- sidebar: style can be found in sidebar.less -->
+        <section class="sidebar">
+            <!-- Sidebar user panel -->
+            <div class="user-panel">
+                <div class="pull-left image">
+                    <img src="~/img/me.svg" width="45" height="45" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+                    <p>Randy</p>
+                    <a href="#"><i class="glyphicon glyphicon-ok-circle"></i> Online</a>
                 </div>
             </div>
-        </div>
 
-    </section>
-  
-</div>
+            <ul class="sidebar-menu">
+                <li class="header">目录菜单</li>
 
+                <li class="treeview" id="productManager">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-home"></i> <span>产品列表</span>
+                    </a>
 
+                </li>
+                <li class="treeview" id="userManager">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-user"></i> <span>用户管理</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="~/user/index"><i class="glyphicon glyphicon-chevron-right"></i> 个人设置</a></li>
+                        <li><a href="~/user/userlist"><i class="glyphicon glyphicon-chevron-right"></i> 下属用户</a></li>
+                    </ul>
+                </li>
 
+                <li class="treeview" id="orderManager">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-file"></i>
+                        <span>订单管理</span>
+                        <span class="label label-primary pull-right">4</span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="~/order/index"><i class="glyphicon glyphicon-chevron-right"></i> index</a></li>
+                    </ul>
+                </li>
 
-<footer class="main-footer">
-    <div class="pull-right hidden-xs">
-        <b>Version</b> 1.0
+                <li class="treeview" id="logManager">
+                    <a href="~/log/index">
+                        <i class="glyphicon glyphicon-edit"></i>
+                        <span>日志管理</span>
+                    </a>
+                </li>
+
+                <li class="treeview" id="messageManager">
+                    <a href="~/log/messageboard">
+                        <i class="glyphicon glyphicon-comment"></i>
+                        <span>留言板</span>
+                        <span class="label label-primary pull-right"></span>
+                    </a>
+                </li>
+
+            </ul>
+        </section>
+        <!-- /.sidebar -->
+    </aside>
+
+    <div class="content-wrapper" style="min-height: 900px;">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            @RenderSection("content_header", true)
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="nav-tabs-custom">
+                        @RenderSection("content", true)
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
     </div>
-    <strong>Copyright © 2014-2015 <a href="#">高山药业经销商平台 </a>.</strong> All rights reserved.
-</footer>
+
+
+
+
+    <footer class="main-footer">
+        <div class="pull-right hidden-xs">
+            <b>Version</b> 1.0
+        </div>
+        <strong>Copyright © 2015 <a href="#">高山药业经销商平台 </a>.</strong> All rights reserved.
+    </footer>
 
 }
 
 @section script{
-    @*<script src="~/Js/utility/jquery.min.js"></script>*@
+   @* <script src="~/Js/utility/jquery.min.js"></script>*@
+
     <script>
         $(function () {
             $('body').addClass('skin-blue fixed');
 
-            console.log($(".sidebar-menu >.treeview "));
+            $(".sidebar-menu .treeview").each(function () {
+                $(this).click(function () {
 
+                    var treeview = $(this);
 
+                    treeview.siblings(".treeview").removeClass("active");
+                    if (treeview.hasClass("active") == false)
+                        $("ul", treeview).slideDown("normal");
+                    else
+                        $("ul", treeview).slideToggle("normal", function () { treeview.removeClass("active"); });
+           
+                    treeview.addClass("active");
+
+                });
+            })
 
         });
     </script>
+    @RenderSection("script", false)
 }
 
