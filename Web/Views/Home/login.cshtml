@@ -79,8 +79,7 @@
 
             $('#submit').click(function () {
                 
-                getAsynData("../home/login", $("#form_login").serialize(), function (json) {
-                
+                getAsynData('@Url.Content("~/home/login")', $("#form_login").serialize(), function (json) {              
                     location.href = json.Data;
                 });
             });
