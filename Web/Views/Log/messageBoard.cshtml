@@ -20,10 +20,143 @@
 
 
 @section content{
+<div class="box box-primary">
+    <div class="box-header">
+        <h3 class="box-title"><label>留言</label></h3>
+    </div>
+
+    <form role="form" id="form_messageboard">
+        <input hidden="hidden" value="guid" name="UserGuid" />
+        <div class="box-body">
+            <div class="form-group">
+                <label for="userName">用户名</label>
+                <input type="text" class="form-control" name="userName" id="userName" value="Randy" disabled>
+            </div>
+
+            <div class="form-group has-feedback">
+                <label for="oldPwd">旧密码</label>
+                <input type="email" class="form-control" name="oldPwd" id="oldPwd" placeholder="旧密码" required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label for="newPwd">新密码</label>
+                <input type="password" class="form-control" name="newPwd" id="newPwd" placeholder="新密码" required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <label for="confirmPwd">再次输入新密码</label>
+                <input type="password" class="form-control" name="confirmPwd" id="confirmPwd" placeholder="确认密码" required>
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+        </div><!-- /.box-body -->
+
+        <div class="box-footer">
+            <button type="button" id="submit" class="btn btn-primary">
+                <i class="glyphicon glyphicon-check"></i>
+                留言
+            </button>
+        </div>
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- The time line -->
+        <ul class="timeline">
+            <!-- timeline time label -->
+            <li class="time-label">
+                <span class="bg-red">
+                    10 Feb. 2014
+                </span>
+            </li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-envelope bg-blue"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
+                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
+                    <div class="timeline-body">
+                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
+                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
+                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
+                        quora plaxo ideeli hulu weebly balihoo...
+                    </div>
+                    <div class="timeline-footer">
+                        <a class="btn btn-primary btn-xs">Read more</a>
+                        <a class="btn btn-danger btn-xs">Delete</a>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-user bg-aqua"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
+                    <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-comments bg-yellow"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
+                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
+                    <div class="timeline-body">
+                        Take me to your leader!
+                        Switzerland is small and neutral!
+                        We are more like Germany, ambitious and misunderstood!
+                    </div>
+                    <div class="timeline-footer">
+                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline time label -->
+            <li class="time-label">
+                <span class="bg-green">
+                    3 Jan. 2014
+                </span>
+            </li>
+            <!-- /.timeline-label -->
+            <!-- timeline item -->
+            <li>
+                <i class="fa fa-camera bg-purple"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
+                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
+                    <div class="timeline-body">
+
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <!-- timeline item -->
+            <li>
+                <i class="glyphicon glyphicon-facetime-video bg-maroon"></i>
+                <div class="timeline-item">
+                    <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
+                    <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
+                    <div class="timeline-body">
+           
+                    </div>
+                    <div class="timeline-footer">
+                        <a href="#" class="btn btn-xs bg-maroon">See comments</a>
+                    </div>
+                </div>
+            </li>
+            <!-- END timeline item -->
+            <li>
+                <i class="glyphicon glyphicon-time bg-gray"></i>
+            </li>
+        </ul>
+    </div><!-- /.col -->
+</div>
 
 
-
-   
 }
 
 @section script{
@@ -31,6 +164,9 @@
     <script>
         $(function () {
             $("#messageManager").addClass("active");
+
+
+
         })
     </script>
 }

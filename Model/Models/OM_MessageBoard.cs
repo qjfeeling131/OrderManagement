@@ -12,5 +12,7 @@ namespace OrderManager.Model.Models
         public string Email { get; set; }
         public string Title { get; set; }
         public string Message { get; set; }
+
+        public string UserGuid { get; set; }
     }
 }

@@ -181,6 +181,7 @@
     <Content Include="Views\Template\exceptionPage.cshtml" />
     <Content Include="Views\User\userlist.cshtml" />
     <Content Include="Views\Log\messageBoard.cshtml" />
+    <Content Include="Views\User\resetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

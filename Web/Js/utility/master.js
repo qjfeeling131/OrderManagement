@@ -11,6 +11,10 @@ function createDialog(url, parameters) {
                     keyboard: true,
                     show: true,
                     backdrop: 'static'
+                });
+
+                $(modal).on('hidden.bs.modal', function (e) {                  
+                    $(this).remove();
                 })
             }
         }
@@ -20,7 +24,7 @@ function createDialog(url, parameters) {
 
 function alertInfo(title,msg) {
     var model = { 'Title':  title , 'Message': msg };
-    createDialog('../base/exception', model);
+    createDialog('../base/exception', model); 
 }
 
 //exception wrapper
