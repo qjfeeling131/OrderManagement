@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\OM_AreaRoles.cs" />
     <Compile Include="DTO\OM_UserAuthority.cs" />
     <Compile Include="DTO\OM_DepartmentDto.cs" />
     <Compile Include="Enum\OM_ExceptionCodeEnum.cs" />
