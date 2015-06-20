@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using OrderManager.Model.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -28,9 +26,20 @@ namespace OrderManager.Model.DTO
         public Nullable<System.DateTime> CreateDatetiime { get; set; }
         [DataMember]
         public Nullable<System.DateTime> UpdateDateTime { get; set; }
+
+        List<OM_AreaRoles> childRoles;
         [DataMember]
-        List<OM_AreaRoles> childRoles { get; set; }
+        public List<OM_AreaRoles> ChildRoles
+        {
+            get
+            {
+                if (childRoles == null)
+                {
+                    childRoles = new List<OM_AreaRoles>();
+
+                }
+                return childRoles;
+            }
+        }
     }
-
-
 }

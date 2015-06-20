@@ -31,7 +31,7 @@ namespace OrderManager.Web
         }
 
 
-        public ViewResult UserList(int? pageIndex=0, int? pageSize = 10)
+        public ViewResult UserList(string key, int? pageIndex=0, int? pageSize = 10)
         {
             List<OM_User> list = new List<OM_User>() { 
             new OM_User{ Guid="1", Name="rrere1", Account="c001", Email="wwerewr@qq.com", Gender=true,Address="guangzhou"},

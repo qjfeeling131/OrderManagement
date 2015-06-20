@@ -10,7 +10,6 @@
 
     <h1>
         <b>留言板</b>
-        <small>一些建议</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="~/home/home"><i class="glyphicon glyphicon-home"></i> 主页</a></li>
@@ -22,138 +21,98 @@
 @section content{
 <div class="box box-primary">
     <div class="box-header">
-        <h3 class="box-title"><label>留言</label></h3>
-    </div>
-
-    <form role="form" id="form_messageboard">
-        <input hidden="hidden" value="guid" name="UserGuid" />
-        <div class="box-body">
-            <div class="form-group">
-                <label for="userName">用户名</label>
-                <input type="text" class="form-control" name="userName" id="userName" value="Randy" disabled>
+        <h3 class="box-title"><label>历史留言</label></h3>
+     
+        <div class="box-tools">
+            <div class="input-group">
+                <input type="text" name="table_search" class="form-control input-sm pull-right" style="width: 150px;" placeholder="搜索">
+                <div class="input-group-btn">
+                    <button class="btn btn-sm btn-default" id="search"><i class="glyphicon glyphicon-search"></i></button>
+                    <button style="margin-left:10px;" class="btn btn-sm  btn-info" id="leave"><i class="glyphicon glyphicon-comment"></i>&nbsp;我要留言</button>
+                </div>
             </div>
 
-            <div class="form-group has-feedback">
-                <label for="oldPwd">旧密码</label>
-                <input type="email" class="form-control" name="oldPwd" id="oldPwd" placeholder="旧密码" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <label for="newPwd">新密码</label>
-                <input type="password" class="form-control" name="newPwd" id="newPwd" placeholder="新密码" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <label for="confirmPwd">再次输入新密码</label>
-                <input type="password" class="form-control" name="confirmPwd" id="confirmPwd" placeholder="确认密码" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-        </div><!-- /.box-body -->
-
-        <div class="box-footer">
-            <button type="button" id="submit" class="btn btn-primary">
-                <i class="glyphicon glyphicon-check"></i>
-                留言
-            </button>
         </div>
-    </form>
-</div>
 
-<div class="row">
-    <div class="col-md-12">
-        <!-- The time line -->
-        <ul class="timeline">
-            <!-- timeline time label -->
-            <li class="time-label">
-                <span class="bg-red">
-                    10 Feb. 2014
-                </span>
-            </li>
-            <!-- /.timeline-label -->
-            <!-- timeline item -->
-            <li>
-                <i class="fa fa-envelope bg-blue"></i>
-                <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-                    <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-                    <div class="timeline-body">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                    </div>
-                    <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Read more</a>
-                        <a class="btn btn-danger btn-xs">Delete</a>
-                    </div>
-                </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            <li>
-                <i class="fa fa-user bg-aqua"></i>
-                <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-                    <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request</h3>
-                </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            <li>
-                <i class="fa fa-comments bg-yellow"></i>
-                <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-                    <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-                    <div class="timeline-body">
-                        Take me to your leader!
-                        Switzerland is small and neutral!
-                        We are more like Germany, ambitious and misunderstood!
-                    </div>
-                    <div class="timeline-footer">
-                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                    </div>
-                </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline time label -->
-            <li class="time-label">
-                <span class="bg-green">
-                    3 Jan. 2014
-                </span>
-            </li>
-            <!-- /.timeline-label -->
-            <!-- timeline item -->
-            <li>
-                <i class="fa fa-camera bg-purple"></i>
-                <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-                    <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-                    <div class="timeline-body">
+    </div><!-- /.box-header -->
+    <div class="box-body">
 
-                    </div>
+        <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div class="row">
+                <div class="col-sm-6"></div><div class="col-sm-6"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="example2" class="table table-bordered table-hover dataTable" role="grid" aria-describedby="example2_info">
+                        <thead>
+                            <tr role="row">
+                                <th tabindex="0">账户</th>
+                                <th tabindex="0">用户名</th>
+                                <th tabindex="0">性别</th>
+                                <th tabindex="0">邮箱</th>
+                                <th tabindex="0">地址</th>
+                                <th tabindex="0">操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr role="row">
+                                    <td>@item.Account</td>
+                                    <td>@item.Name</td>
+                                    <td>@(item.Gender == true ? "男" : "女")</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Address</td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+
                 </div>
-            </li>
-            <!-- END timeline item -->
-            <!-- timeline item -->
-            <li>
-                <i class="glyphicon glyphicon-facetime-video bg-maroon"></i>
-                <div class="timeline-item">
-                    <span class="time"><i class="fa fa-clock-o"></i> 5 days ago</span>
-                    <h3 class="timeline-header"><a href="#">Mr. Doe</a> shared a video</h3>
-                    <div class="timeline-body">
-           
+            </div>
+            <div class="row">
+                <div class="col-sm-5"><div class="dataTables_info">当前第 @(ViewBag.PageIndex + 1) 页（共 @ViewBag.TotalPages 页）</div></div>
+                @if (ViewBag.TotalPages != null && ViewBag.TotalPages > 1)
+                {
+                    <div class="col-sm-7">
+                        <div class="dataTables_paginate" id="paginate">
+                            <ul class="pagination">
+
+                                @{
+                    var currentPage = (int)ViewBag.PageIndex + 1;
+                    var beginIndex = 1;
+                    if (currentPage < 4)
+                    { beginIndex = 1; }
+                    else if (currentPage >= (ViewBag.TotalPages - 4))
+                    { beginIndex = (int)ViewBag.TotalPages - 4; }
+                    else
+                    { beginIndex = currentPage - 2; }
+                    var count = ViewBag.TotalPages < (beginIndex + 4) ? ViewBag.TotalPages : (beginIndex + 4);
+                                }
+
+                                <li class="paginate_button  @(ViewBag.PageIndex==0?"disabled":"") ">
+                                    <a href="@(ViewBag.PageIndex==0?"#": Url.Content("~/user/userlist?&&pageIndex=" + (currentPage - 2)))">上一页</a>
+                                </li>
+
+                                @for (int i = beginIndex; i <= count; i++)
+                                {
+                                    <li class="paginate_button @(i == currentPage ? "active" : "") ">
+                                        <a href="@Url.Content("~/user/userlist?&&pageIndex=" + (i - 1))">@i</a>
+                                    </li>
+                                }
+
+                                <li class="paginate_button @(ViewBag.TotalPages == (ViewBag.PageIndex+1) ? "disabled" : "") ">
+                                    <a href="@(ViewBag.TotalPages == (ViewBag.PageIndex+1) ?"#":Url.Content("~/user/userlist?&&pageIndex=" + currentPage))">下一页</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="timeline-footer">
-                        <a href="#" class="btn btn-xs bg-maroon">See comments</a>
-                    </div>
-                </div>
-            </li>
-            <!-- END timeline item -->
-            <li>
-                <i class="glyphicon glyphicon-time bg-gray"></i>
-            </li>
-        </ul>
-    </div><!-- /.col -->
+                }
+            </div>
+        </div>
+    </div>
 </div>
 
 
@@ -165,8 +124,10 @@
         $(function () {
             $("#messageManager").addClass("active");
 
-
-
-        })
+            $("#leave").click(function () {
+                    createDialog('@(Url.Content("~/log/leavemessage"))', "userguid=1" );
+                });
+            })
+      
     </script>
 }

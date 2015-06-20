@@ -282,7 +282,11 @@ namespace OrderManager.Manager
             return DbRepository.GetPagedList(PageIndex, PageSize, fuc, orderFuc);
 
         }
-
+        /// <summary>
+        /// 获取用户角色
+        /// </summary>
+        /// <param name="fuc"></param>
+        /// <returns></returns>
         public OM_UserRole GetUserRole(Expression<Func<OM_UserRole, bool>> fuc)
         {
             return DbRepository.GetModel(fuc);
@@ -325,45 +329,106 @@ namespace OrderManager.Manager
             return result;
         }
 
-
-
-
-
+        /// <summary>
+        /// 获取角色
+        /// </summary>
+        /// <param name="fuc"></param>
+        /// <returns></returns>
         public IList<OM_Role> GetRoles(Expression<Func<OM_Role, bool>> fuc)
         {
             return DbRepository.GetList(fuc);
         }
+
         /// <summary>
-        /// 获取当前用户登陆角色以及子角色
+        /// 获取当前用户集合
+        /// </summary>
+        /// <param name="fuc"></param>
+        /// <returns></returns>
+        public IList<OM_User> GetUserList(Expression<Func<OM_User, bool>> fuc)
+        {
+            return DbRepository.GetList(fuc);
+        }
+        public IList<OM_UserRole> GetUserRoleList(Expression<Func<OM_UserRole, bool>> fuc)
+        {
+            return DbRepository.GetList(fuc);
+        }
+        //public List<OM_User> GetCurrentUser(string userId)
+        //{
+
+        //    List<OM_AreaRoles> listRoles = GetAreaRoles(userId);
+        //    if (listRoles != null)
+        //    {
+
+        //    }
+        //}
+        /// <summary>
+        /// 获取当前用户登陆信息以及其管理的其它用户
         /// </summary>
         /// <param name="guid"></param>
         /// <returns></returns>
-        public List<OM_AreaRoles> GetAreaRoles(string userId)
+        public List<OM_User> GetAreaRoles(string userId)
         {
+
             OM_UserRole userRole = GetUserRole(c => c.User_Guid == userId);
 
-
+            OM_User currentUser = GetUser(u => u.Guid == userId);
+            if (currentUser == null)
+            {
+                return null;
+            }
+            List<OM_User> listUsers = new List<OM_User>();
+            listUsers.Add(currentUser);
             OM_Role role = GetRole(c => c.Guid == userRole.Role_Guid);
 
-            List<OM_Role> roles = GetRoles(r => r.IsDel == true).ToList();
+            List<OM_Role> roles = GetRoles(r => r.IsDel == false).ToList();
 
             List<OM_AreaRoles> listRoles = new List<OM_AreaRoles>();
 
             GetRolesTree(role.ID, listRoles, roles);
-            return listRoles;
+            if (listRoles != null)
+            {
+                List<string> listUserGuid = new List<string>();
+
+                GetListUserGuid(listUserGuid, listRoles);
+
+                listUsers.AddRange(GetUserList(u => listUserGuid.Contains(u.Guid) && u.Area_Guid == currentUser.Area_Guid).ToList());
+            }
+            return listUsers;
         }
 
+
+        private void GetListUserGuid(List<string> listUserGuid, List<OM_AreaRoles> listRoles)
+        {
+            foreach (var role in listRoles)
+            {
+                listUserGuid.AddRange(GetUserRoleList(c => c.Role_Guid == role.Guid).Select(r => r.User_Guid).ToList());
+                if (role.ChildRoles.Count > 0)
+                {
+                    GetListUserGuid(listUserGuid, role.ChildRoles);
+                }
+            }
+        }
         private void GetRolesTree(int roleId, List<OM_AreaRoles> listRoles, List<OM_Role> roles)
         {
             foreach (var role in roles)
             {
-                role.ParentID = roleId;
-                OM_AreaRoles areaRoles = new OM_AreaRoles();
-                listRoles.Add(areaRoles);
-                GetRolesTree(role.ID, listRoles, roles);
+                if (role.ParentID == roleId)
+                {
+                    OM_AreaRoles areaRoles = new OM_AreaRoles();
+                    areaRoles.ID = role.ID;
+                    areaRoles.Name = role.Name;
+                    areaRoles.ParentID = Convert.ToInt32(role.ParentID);
+                    areaRoles.Guid = role.Guid;
+                    areaRoles.IsDel = role.IsDel;
+                    areaRoles.Department_Guid = role.Department_Guid;
+                    areaRoles.CreateDatetiime = role.CreateDatetiime;
+                    areaRoles.UpdateDateTime = role.UpdateDateTime;
+                    listRoles.Add(areaRoles);
+                    GetRolesTree(role.ID, areaRoles.ChildRoles, roles);
+                }
+
             }
         }
-
         #endregion
 
     }
