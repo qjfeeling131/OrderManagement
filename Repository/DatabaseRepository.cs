@@ -72,5 +72,11 @@ namespace OrderManager.Repository
         {
             return _dbContext.Set<T>().Where(lambda).FirstOrDefault();
         }
+
+
+        public virtual List<T> GetList<T>(Expression<Func<T, bool>> whereLambda) where T : class
+        {
+            return _dbContext.Set<T>().Where(whereLambda).ToList();
+        }
     }
 }

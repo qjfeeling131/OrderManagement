@@ -326,6 +326,44 @@ namespace OrderManager.Manager
         }
 
 
+
+
+
+        public IList<OM_Role> GetRoles(Expression<Func<OM_Role, bool>> fuc)
+        {
+            return DbRepository.GetList(fuc);
+        }
+        /// <summary>
+        /// 获取当前用户登陆角色以及子角色
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        public List<OM_AreaRoles> GetAreaRoles(string userId)
+        {
+            OM_UserRole userRole = GetUserRole(c => c.User_Guid == userId);
+
+
+            OM_Role role = GetRole(c => c.Guid == userRole.Role_Guid);
+
+            List<OM_Role> roles = GetRoles(r => r.IsDel == true).ToList();
+
+            List<OM_AreaRoles> listRoles = new List<OM_AreaRoles>();
+
+            GetRolesTree(role.ID, listRoles, roles);
+            return listRoles;
+        }
+
+        private void GetRolesTree(int roleId, List<OM_AreaRoles> listRoles, List<OM_Role> roles)
+        {
+            foreach (var role in roles)
+            {
+                role.ParentID = roleId;
+                OM_AreaRoles areaRoles = new OM_AreaRoles();
+                listRoles.Add(areaRoles);
+                GetRolesTree(role.ID, listRoles, roles);
+            }
+        }
+
         #endregion
 
     }

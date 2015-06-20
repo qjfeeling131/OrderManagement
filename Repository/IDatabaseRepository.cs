@@ -21,6 +21,8 @@ namespace OrderManager.Repository
 
         List<T> GetPagedList<T, TKey>(int pageIndex, int pageSize, Expression<Func<T, bool>> whereLambda = null, Expression<Func<T, TKey>> orderBy = null) where T : class;
 
+        List<T> GetList<T>(Expression<Func<T, bool>> whereLambda);
+
         int ExcuteSql(string strSql, params object[] paras);
     }
 }
