@@ -13,7 +13,7 @@ namespace OrderManager.Model.Models.Mapping
             // Properties
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.CardCode)
                 .IsRequired()
@@ -27,7 +27,7 @@ namespace OrderManager.Model.Models.Mapping
 
             this.Property(t => t.User_Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.TPLCompany)
                 .HasMaxLength(50);

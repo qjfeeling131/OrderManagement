@@ -16,7 +16,7 @@ namespace OrderManager.Model.Models.Mapping
 
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.Name)
                 .IsRequired()
@@ -37,6 +37,10 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.Message)
                 .IsRequired();
 
+            this.Property(t => t.User_Guid)
+                .IsRequired()
+                .HasMaxLength(36);
+
             // Table & Column Mappings
             this.ToTable("OM_MessageBoard");
             this.Property(t => t.ID).HasColumnName("ID");
@@ -46,6 +50,7 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.Email).HasColumnName("Email");
             this.Property(t => t.Title).HasColumnName("Title");
             this.Property(t => t.Message).HasColumnName("Message");
+            this.Property(t => t.User_Guid).HasColumnName("User_Guid");
         }
     }
 }

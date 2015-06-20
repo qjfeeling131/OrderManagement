@@ -14,5 +14,8 @@ namespace OrderManager.Service
     {
         [OperationContract]
         OM_UserAuthority Login(string userAccount, string password);
+
+        [OperationContract]
+        void Test(string cipher, string aaa);
     }
 }

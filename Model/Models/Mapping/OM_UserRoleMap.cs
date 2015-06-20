@@ -16,15 +16,15 @@ namespace OrderManager.Model.Models.Mapping
 
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.User_Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.Role_Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             // Table & Column Mappings
             this.ToTable("OM_UserRole");

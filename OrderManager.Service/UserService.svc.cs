@@ -31,12 +31,16 @@ namespace OrderManager.Service
                 throw new GenericException("账户或密码错误，请再次检查输入", OM_ExceptionCodeEnum.LOGIN.ToString());
             
             var user = UserManager.GetUser(f => f.Account == userAccount && f.Pwd == password);
-
+           
             user.Key = Encryptor.GenerateKey();
             UserManager.UpdateUer(user);
 
             var re = UserManager.GetUserAuthority(user.Guid);
             return re;
+        }
+
+        public void Test(string cipher, string aaa)
+        { 
         }
     }
 } 

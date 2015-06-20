@@ -16,7 +16,7 @@ namespace OrderManager.Model.Models.Mapping
 
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.Name)
                 .IsRequired()
@@ -39,9 +39,8 @@ namespace OrderManager.Model.Models.Mapping
                 .IsRequired()
                 .HasMaxLength(36);
 
-            this.Property(t => t.Account)
-          .IsRequired()
-          .HasMaxLength(36);
+            this.Property(t => t.Key)
+                .HasMaxLength(128);
 
             // Table & Column Mappings
             this.ToTable("OM_User");

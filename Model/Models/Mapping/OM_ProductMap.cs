@@ -16,7 +16,7 @@ namespace OrderManager.Model.Models.Mapping
 
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.ItemCode)
                 .IsRequired()

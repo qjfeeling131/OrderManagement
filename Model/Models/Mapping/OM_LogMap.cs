@@ -14,13 +14,13 @@ namespace OrderManager.Model.Models.Mapping
             this.Property(t => t.ID)
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 
-            this.Property(t => t.User_Id)
+            this.Property(t => t.User_Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.Guid)
                 .IsRequired()
-                .HasMaxLength(36);
+                .HasMaxLength(50);
 
             this.Property(t => t.Operation)
                 .IsRequired()
@@ -35,7 +35,7 @@ namespace OrderManager.Model.Models.Mapping
             // Table & Column Mappings
             this.ToTable("OM_Log");
             this.Property(t => t.ID).HasColumnName("ID");
-            this.Property(t => t.User_Id).HasColumnName("User_Id");
+            this.Property(t => t.User_Guid).HasColumnName("User_Guid");
             this.Property(t => t.Guid).HasColumnName("Guid");
             this.Property(t => t.Message).HasColumnName("Message");
             this.Property(t => t.CreateDatetime).HasColumnName("CreateDatetime");

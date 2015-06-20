@@ -11,9 +11,6 @@ namespace OrderManager.Model.Models.Mapping
             this.HasKey(t => t.Guid);
 
             // Properties
-            this.Property(t => t.ID)
-                .HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-
             this.Property(t => t.Guid)
                 .IsRequired()
                 .HasMaxLength(36);

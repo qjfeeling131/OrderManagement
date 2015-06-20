@@ -9,7 +9,7 @@ namespace OrderManager.Model.Models
         public string Guid { get; set; }
         public string Department_Guid { get; set; }
         public string Name { get; set; }
-        public bool ParentID { get; set; }
+        public Nullable<int> ParentID { get; set; }
         public Nullable<bool> IsDel { get; set; }
         public Nullable<System.DateTime> CreateDatetiime { get; set; }
         public Nullable<System.DateTime> UpdateDateTime { get; set; }
