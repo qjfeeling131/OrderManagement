@@ -29,9 +29,9 @@ namespace OrderManager.Service
             var result = UserManager.Login(userAccount, password);
             if (result == false)
                 throw new GenericException("账户或密码错误，请再次检查输入", OM_ExceptionCodeEnum.LOGIN.ToString());
-            
+
             var user = UserManager.GetUser(f => f.Account == userAccount && f.Pwd == password);
-           
+
             user.Key = Encryptor.GenerateKey();
             UserManager.UpdateUer(user);
 
@@ -39,8 +39,15 @@ namespace OrderManager.Service
             return re;
         }
 
+        public List<OM_LogDataObject> GetCurrentUserLogs(string cipher, string userId)
+        {
+            return UserManager.GetCurrentUserLogs(userId);
+        }
+
+
         public void Test(string cipher, string aaa)
-        { 
+        {
+            throw new NotImplementedException();
         }
     }
-} 
+}

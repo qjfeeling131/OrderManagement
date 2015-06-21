@@ -21,37 +21,37 @@ namespace OrderManager.Service.Aop
         public override void CheckAuthentication(IMethodInvocation input)
         {
 
-            if (input.MethodBase.Name.ToUpper() == "LOGIN")
-                return;
+            //if (input.MethodBase.Name.ToUpper() == "LOGIN")
+            //    return;
 
-            if (input.Arguments.ContainsParameter("cipher") == false)
-                throw new GenericException("为确保账户安全,请重新登陆", OM_ExceptionCodeEnum.LOGIN.ToString());
-            //MyUnityContainer
-            var cipher = input.Arguments["cipher"].ToString();
+            //if (input.Arguments.ContainsParameter("cipher") == false)
+            //    throw new GenericException("为确保账户安全,请重新登陆", OM_ExceptionCodeEnum.LOGIN.ToString());
+            ////MyUnityContainer
+            //var cipher = input.Arguments["cipher"].ToString();
 
-            var userList = UserManager.GetUserList(0, int.MaxValue, f => f.ID > 0, null);
+            //var userList = UserManager.GetUserList(0, int.MaxValue, f => f.ID > 0, null);
 
-            bool exist = false;
-            Model.Models.OM_User user = null;
-            foreach (var item in userList)
-            {
-                string result = Encryptor.DESEncrypt(item.Guid, item.Key);
-                if (result == cipher)
-                {
+            //bool exist = false;
+            //Model.Models.OM_User user = null;
+            //foreach (var item in userList)
+            //{
+            //    string result = Encryptor.DESEncrypt(item.Guid, item.Key);
+            //    if (result == cipher)
+            //    {
                
-                    if (item.UpdateDatetime == null || item.UpdateDatetime < DateTime.Now.AddHours(-1))
-                        throw new GenericException("登陆超时，请重新登陆", OM_ExceptionCodeEnum.LOGIN.ToString());
-                    exist = true;
-                    user = item;
-                    break;
-                }
-            }
+            //        if (item.UpdateDatetime == null || item.UpdateDatetime < DateTime.Now.AddHours(-1))
+            //            throw new GenericException("登陆超时，请重新登陆", OM_ExceptionCodeEnum.LOGIN.ToString());
+            //        exist = true;
+            //        user = item;
+            //        break;
+            //    }
+            //}
 
-            if (exist == false)
-                throw new GenericException("用户身份验证失败，请重新登录", OM_ExceptionCodeEnum.LOGIN.ToString());
+            //if (exist == false)
+            //    throw new GenericException("用户身份验证失败，请重新登录", OM_ExceptionCodeEnum.LOGIN.ToString());
 
-            //验证成功， 更新最后修改时间。
-            UserManager.UpdateUer(user);
+            ////验证成功， 更新最后修改时间。
+            //UserManager.UpdateUer(user);
 
         }
     }

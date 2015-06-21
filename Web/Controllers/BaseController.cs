@@ -16,6 +16,8 @@ namespace OrderManager.Web
     {
 
         //public ICache Cache { get; set; }
+
+        
         public ViewResult Exception(Models.InfoModel model)
         {
             if (model == null)

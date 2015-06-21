@@ -53,11 +53,12 @@
                             @foreach (var item in Model)
                             {
                                 <tr role="row">
-                                    <td>@item.Account</td>
-                                    <td>@item.Name</td>
-                                    <td>@(item.Gender == true ? "男" : "女")</td>
-                                    <td>@item.Email</td>
-                                    <td>@item.Address</td>
+                                    <td>@item.User_Name</td>
+                                    <td>@item.Doc_Name</td>
+                                    <td>@item.Doc_View</td>
+                                    <td>@item.Operation</td>
+                                    <td>@item.CreateDatetime</td>
+                                    <td>@item.Message</td>
                                 </tr>
                             }
 
@@ -88,18 +89,18 @@
                                 }
 
                                 <li class="paginate_button  @(ViewBag.PageIndex==0?"disabled":"") ">
-                                    <a href="@(ViewBag.PageIndex==0?"#": Url.Content("~/user/userlist?&&pageIndex=" + (currentPage - 2)))">上一页</a>
+                                    <a href="@(ViewBag.PageIndex==0?"#": Url.Content("~/home/log?&&pageIndex=" + (currentPage - 2)))">上一页</a>
                                 </li>
 
                                 @for (int i = beginIndex; i <= count; i++)
                                 {
                                     <li class="paginate_button @(i == currentPage ? "active" : "") ">
-                                        <a href="@Url.Content("~/user/userlist?&&pageIndex=" + (i - 1))">@i</a>
+                                        <a href="@Url.Content("~/home/log?&&pageIndex=" + (i - 1))">@i</a>
                                     </li>
                                 }
 
                                 <li class="paginate_button @(ViewBag.TotalPages == (ViewBag.PageIndex+1) ? "disabled" : "") ">
-                                    <a href="@(ViewBag.TotalPages == (ViewBag.PageIndex+1) ?"#":Url.Content("~/user/userlist?&&pageIndex=" + currentPage))">下一页</a>
+                                    <a href="@(ViewBag.TotalPages == (ViewBag.PageIndex + 1) ? "#" : Url.Content("~/home/log?&&pageIndex=" + currentPage))">下一页</a>
                                 </li>
                             </ul>
                         </div>

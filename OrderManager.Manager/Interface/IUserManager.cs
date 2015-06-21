@@ -73,6 +73,8 @@ namespace OrderManager.Manager
 
         bool Login(string userAccount, string password);
 
+        List<OM_LogDataObject> GetCurrentUserLogs(string userId);
+
         #endregion
     }
 }

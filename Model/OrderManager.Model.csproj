@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\OM_LogDataObject.cs" />
     <Compile Include="DTO\OM_AreaRoles.cs" />
     <Compile Include="DTO\OM_UserAuthority.cs" />
     <Compile Include="DTO\OM_DepartmentDto.cs" />

@@ -15,7 +15,7 @@
     <AssemblyName>Web</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -159,13 +159,15 @@
     <Content Include="Js\utility\jquery.min.js" />
     <Content Include="Js\utility\master.js" />
     <Content Include="Properties\DataSources\OrderManager.Model.DTO.OM_UserAuthority.datasource" />
-    <None Include="Service References\UserService\UserService.disco" />
+    <Content Include="Properties\DataSources\OrderManager.Model.Models.OM_Log.datasource" />
+    <Content Include="Properties\DataSources\OrderManager.Model.DTO.OM_LogDataObject.datasource" />
     <None Include="Service References\UserService\configuration91.svcinfo" />
     <None Include="Service References\UserService\configuration.svcinfo" />
     <None Include="Service References\UserService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Service References\UserService\UserService1.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -174,16 +176,25 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <None Include="Service References\UserService\UserService.wsdl" />
-    <None Include="Service References\UserService\UserService3.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <Content Include="Views\Template\exceptionPage.cshtml" />
     <Content Include="Views\User\userlist.cshtml" />
     <Content Include="Views\Log\messageBoard.cshtml" />
     <Content Include="Views\User\resetPassword.cshtml" />
     <Content Include="Views\Order\order.cshtml" />
     <Content Include="Views\Log\leavemessage.cshtml" />
+    <None Include="Service References\UserService\UserService1.wsdl" />
+    <None Include="Service References\UserService\UserService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService41.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService42.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UserService\UserService43.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -239,17 +250,6 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\UserService\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\UserService\UserService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\UserService\UserService2.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -266,9 +266,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>41958</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/OrderManager.Web</IISUrl>
+          <IISUrl>http://localhost:22561/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

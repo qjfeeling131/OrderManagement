@@ -1,4 +1,5 @@
 ﻿using OrderManager.Model.DTO;
+using OrderManager.Model.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,8 @@ namespace OrderManager.Service
 
         [OperationContract]
         void Test(string cipher, string aaa);
+
+        [OperationContract]
+        List<OM_LogDataObject> GetCurrentUserLogs(string cipher, string userId);
     }
 }

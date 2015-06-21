@@ -352,6 +352,11 @@ namespace OrderManager.Manager
         {
             return DbRepository.GetList(fuc);
         }
+
+        public IList<OM_Log> GetLogList(Expression<Func<OM_Log, bool>> fuc)
+        {
+            return DbRepository.GetList(fuc);
+        }
         //public List<OM_User> GetCurrentUser(string userId)
         //{
 
@@ -361,6 +366,37 @@ namespace OrderManager.Manager
 
         //    }
         //}
+        public List<OM_LogDataObject> GetCurrentUserLogs(string userId)
+        {
+            List<OM_User> listUsers = this.GetAreaRoles(userId);
+            //List<OM_Log> listCurrentUserLogs = new List<OM_Log>();
+            List<OM_LogDataObject> listLogDataObject = new List<OM_LogDataObject>();
+            foreach (var item in listUsers)
+            {
+                listLogDataObject.AddRange(GetLogList(l => l.User_Guid == item.Guid).Select(c => c.DTO(item.Name)));
+                //listCurrentUserLogs.AddRange(GetLogList(l => l.User_Guid == item.Guid).ToList());
+            }
+            return listLogDataObject.OrderByDescending(l => l.CreateDatetime).ToList();
+        }
+        /// <summary>
+        /// 模糊查询日记
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="serVal"></param>
+        /// <returns></returns>
+        public List<OM_LogDataObject> GetCurrentUserLogs(string userId, string serVal)
+        {
+            List<OM_User> listUsers = this.GetAreaRoles(userId);
+            //List<OM_Log> listCurrentUserLogs = new List<OM_Log>();
+            List<OM_LogDataObject> listLogDataObject = new List<OM_LogDataObject>();
+            foreach (var item in listUsers)
+            {
+                listLogDataObject.AddRange(GetLogList(l => l.User_Guid == item.Guid && (l.Doc_View.Contains(serVal) || l.Doc_Name.Contains(serVal) || l.Operation.Contains(serVal) || l.CreateDatetime.ToString().Contains(serVal))).Select(c => c.DTO(item.Name)));
+                //listCurrentUserLogs.AddRange(GetLogList(l => l.User_Guid == item.Guid).ToList());
+            }
+            return listLogDataObject.OrderByDescending(l => l.CreateDatetime).ToList();
+        }
+
         /// <summary>
         /// 获取当前用户登陆信息以及其管理的其它用户
         /// </summary>
