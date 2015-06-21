@@ -15,25 +15,27 @@
         <input hidden="hidden" value="guid" name="UserGuid" />
         <div class="box-body">
             <div style="margin-bottom:15px;">
-                <label>账户</label>
+                <label>用户名</label>
                 <p>@Model.Account</p>
                 <input type="hidden" name="UserGuid" value="@Model.Guid" />
             </div>
 
             <div class="form-group">
-                <label for="userName">用户名</label>
-                <p>@Model.Name</p>
+                <label for="newPwd">邮箱</label>
+                <input type="password" class="form-control" name="newPwd" id="newPwd" placeholder="你的邮箱" required>
+            </div>
+            <div class="form-group">
+                <label for="newPwd">联系电话</label>
+                <input type="password" class="form-control" name="newPwd" id="newPwd" placeholder="电话号码" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPwd">标题</label>
+                <input type="password" class="form-control" name="confirmPwd" id="confirmPwd" placeholder="留言主题" required>
             </div>
 
-            <div class="form-group has-feedback">
-                <label for="newPwd">新密码</label>
-                <input type="password" class="form-control" name="newPwd" id="newPwd" placeholder="新密码" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-            </div>
-            <div class="form-group has-feedback">
-                <label for="confirmPwd">再次输入新密码</label>
-                <input type="password" class="form-control" name="confirmPwd" id="confirmPwd" placeholder="确认密码" required>
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            <div class="form-group">
+                <label for="confirmPwd">留言</label>
+                <textarea class="form-control" rows="3" placeholder="输入留言 ..."></textarea>
             </div>
         </div>
     </form>

@@ -1,6 +1,10 @@
 ﻿/// <reference path="jquery.min.js" />
 
 function createDialog(url, parameters) {
+
+    if ($('body').hasClass('modal-open') == true)
+        return;
+
     $.get(url, parameters, function (data) {
         for (i = 0; i < $(data).length; i++) {
             var item = $(data)[i];
@@ -13,7 +17,7 @@ function createDialog(url, parameters) {
                     backdrop: 'static'
                 });
 
-                $(modal).on('hidden.bs.modal', function (e) {                  
+                $(modal).on('hidden.bs.modal', function (e) {      
                     $(this).remove();
                 })
             }
